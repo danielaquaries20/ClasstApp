@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "66360838296",
+    "project_id": "classtapp",
+    "storage_bucket": "classtapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66360838296:android:50f023c21f0dcd120d68ed",
+        "android_client_info": {
+          "package_name": "com.example.classtapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66360838296-4m280qhjagmpj64a5fm5i43tclrk031n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.classtapp",
+            "certificate_hash": "8285e92c545279d7c131b7cee534ef8be9563d5d"
+          }
+        },
+        {
+          "client_id": "66360838296-gbcf1ic41b6b9jgfg2g7jgaejaci16ph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClO5vKbimxgh8LlFUfT6abIPwX3F68qTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66360838296-gbcf1ic41b6b9jgfg2g7jgaejaci16ph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
