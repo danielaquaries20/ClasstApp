@@ -28,9 +28,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 //            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 //        )
 
-        Handler(mainLooper).postDelayed({
-            openActivity<LoginActivity>{}
-        }, 3000)
+//        Handler(mainLooper).postDelayed({
+//            openActivity<LoginActivity>{}
+//        }, 3000)
 
     }
 }

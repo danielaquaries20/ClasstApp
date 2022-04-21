@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ClasstApp</string>
+    <string name="dengan_bergabung_anda_setuju_untuk__">Dengan bergabung, Anda setuju untuk berbagi informasi kontak dengan semua anggota di kelas Anda</string>
+    <string name="info_class">Info Class</string>
+    <string name="aplikasi_info_class_ini_dibuat__">Aplikasi Info Class ini dibuat untuk saling mengenal teman - teman yang satu kelasnya dan untuk mengetahui bio/identitas teman - temannya</string>
+    <string name="masuk">Masuk</string>
+    <string name="icon_crocodic">Icon Crocodic</string>
 </resources>
