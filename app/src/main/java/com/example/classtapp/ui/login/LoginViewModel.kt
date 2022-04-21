@@ -1,4 +1,4 @@
-package com.example.classtapp.ui.mainscreen
+package com.example.classtapp.ui.login
 
 import com.example.classtapp.api.ApiService
 import com.example.classtapp.base.activity.BaseViewModel
@@ -7,7 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class LoginViewModel @Inject constructor(
     private val apiService: ApiService,
     private val userDao: UserDao
 ) : BaseViewModel(apiService) {
