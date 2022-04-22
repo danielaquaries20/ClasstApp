@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/drawable/background_button_1.xml" value="0.14" />
+        <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/drawable/background_custom_edit_text_1.xml" value="0.14" />
+        <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/drawable/background_custom_text_view_1.xml" value="0.14" />
+        <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/drawable/background_custom_text_view_2.xml" value="0.14" />
         <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/drawable/ic_baseline_add_a_photo_black.xml" value="0.14" />
         <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/layout-v23/activity_login.xml" value="0.209375" />
-        <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/layout/activity_login.xml" value="0.209375" />
+        <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Android Studio/AndroidProject/ClasstApp/app/src/main/res/layout/activity_register.xml" value="0.209375" />
       </map>
