@@ -2,6 +2,7 @@ package com.example.classtapp.ui.mainscreen
 
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.view.WindowManager
 import com.crocodic.core.extension.openActivity
 import com.example.classtapp.R
@@ -33,4 +34,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 //        }, 3000)
 
     }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            binding.btnMasukApp -> openActivity<LoginActivity> {  }
+        }
+
+        super.onClick(v)
+    }
+
 }

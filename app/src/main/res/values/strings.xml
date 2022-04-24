@@ -13,4 +13,9 @@
     <string name="daftar_akun">Daftar Akun</string>
     <string name="daftarkan">Daftarkan</string>
     <string name="nama_pengguna">Nama Pengguna</string>
+    <string name="name">Name</string>
+    <string name="bio">Bio</string>
+    <string name="deskripsi_profile_anda">Deskripsi Profile Anda</string>
+    <string name="no_handphone">No Handphone</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>
