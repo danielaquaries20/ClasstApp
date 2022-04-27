@@ -83,6 +83,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/background_custom_text_view_2"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:text="@string/daftar_akun_"
                 android:textColor="@color/black"
                 android:textSize="17sp"
