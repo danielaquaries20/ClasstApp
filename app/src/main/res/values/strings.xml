@@ -18,4 +18,12 @@
     <string name="deskripsi_profile_anda">Deskripsi Profile Anda</string>
     <string name="no_handphone">No Handphone</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="ganti_foto_profil">Ganti Foto Profil</string>
+    <string name="biodata">Biodata</string>
+    <string name="nama">Nama</string>
+    <string name="no_handphone_teman">No. Handphone Teman</string>
+    <string name="deskripsi_teman">Deskripsi Teman</string>
+    <string name="no_handphone_anda">No. Handphone Anda</string>
+    <string name="photo">Photo</string>
+    <string name="friend">Friend</string>
 </resources>

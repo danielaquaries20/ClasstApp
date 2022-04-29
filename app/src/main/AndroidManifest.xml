@@ -4,7 +4,6 @@
     package="com.example.classtapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
 
     <application
         android:name=".base.App"
@@ -16,6 +15,15 @@
         android:theme="@style/Theme.ClasstApp"
         android:usesCleartextTraffic="${usesCleartextTraffic}"
         tools:targetApi="m">
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.detail_friend.DetailFriendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.edit_profile.EditProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.detail_profile.DetailProfileActivity"
             android:exported="false" />

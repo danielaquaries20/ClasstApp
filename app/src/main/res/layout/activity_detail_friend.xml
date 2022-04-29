@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.detail_profile.DetailProfileActivity">
+        tools:context=".ui.detail_friend.DetailFriendActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,21 +31,41 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_twotone_mobile_off" />
+                    android:src="@drawable/ic_baseline_drag_indicator" />
 
             </RelativeLayout>
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <RelativeLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:contentDescription="@string/photo"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:src="@drawable/photo_friend" />
+                android:layout_marginTop="25dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/photo"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:src="@drawable/photo_friend" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/ic_baseline_favorite_border" />
+
+
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -70,7 +90,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/deskripsi_profile_anda"
+                android:text="@string/deskripsi_teman"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -93,7 +113,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no_handphone_anda"
+                android:text="@string/no_handphone_teman"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -103,20 +123,9 @@
                 android:layout_height="1dp"
                 android:background="@color/dark_grey" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/background_custom_text_view_1"
-                android:foregroundTint="@color/grey"
-                android:gravity="center"
-                android:text="@string/edit_profile"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
 
         </LinearLayout>
+
 
     </ScrollView>
 
