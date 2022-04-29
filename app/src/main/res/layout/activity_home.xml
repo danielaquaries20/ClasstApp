@@ -61,7 +61,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:clipToPadding="false"
-                android:padding="8dp"
                 tools:itemCount="5"
                 tools:listitem="@layout/item_friend" />
 

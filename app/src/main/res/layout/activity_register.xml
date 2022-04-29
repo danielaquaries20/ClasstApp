@@ -85,7 +85,7 @@
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
                 android:text="@string/daftarkan"
-                android:textColor="@color/white"
+                android:textColor="@color/white_true"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
