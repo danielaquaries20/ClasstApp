@@ -22,8 +22,10 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/ivProfileBack"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:onClick="onClick"
                     android:layout_alignParentStart="true"
                     android:src="@drawable/ic_baseline_arrow_back" />
 
@@ -104,6 +106,7 @@
                 android:background="@color/dark_grey" />
 
             <TextView
+                android:id="@+id/tvProfileEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="25dp"
@@ -111,6 +114,7 @@
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
                 android:text="@string/edit_profile"
+                android:onClick="onClick"
                 android:textColor="@color/white_true"
                 android:textSize="17sp"
                 android:textStyle="bold" />

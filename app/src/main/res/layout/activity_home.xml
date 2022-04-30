@@ -22,11 +22,12 @@
                 android:layout_height="wrap_content">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/ivItemPhotoProfile"
+                    android:id="@+id/ivHomePhotoProfile"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_alignParentStart="true"
-                    android:src="@drawable/ic_baseline_person" />
+                    android:src="@drawable/ic_baseline_person"
+                    android:onClick="onClick"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/friend" />
+                    app:drawableStartCompat="@drawable/ic_baseline_friend" />
 
                 <ImageView
                     android:layout_width="30dp"

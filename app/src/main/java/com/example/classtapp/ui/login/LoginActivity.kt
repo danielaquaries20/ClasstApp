@@ -6,6 +6,7 @@ import com.crocodic.core.extension.openActivity
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.databinding.ActivityLoginBinding
+import com.example.classtapp.ui.home.HomeActivity
 import com.example.classtapp.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +21,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     override fun onClick(v: View?) {
         when (v) {
             binding.tvDaftarAkun -> openActivity<RegisterActivity> {  }
+            binding.tvLogin -> openActivity<HomeActivity> {  }
         }
 
         super.onClick(v)
