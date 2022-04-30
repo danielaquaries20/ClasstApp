@@ -89,16 +89,18 @@
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:background="@drawable/background_custom_text_view_2"-->
-<!--                android:gravity="center"-->
-<!--                android:text="@string/daftarkan"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="17sp"-->
-<!--                android:textStyle="bold" />-->
+            <TextView
+                android:id="@+id/tvRegisterNotifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_custom_text_view_2"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/notifikasi"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
