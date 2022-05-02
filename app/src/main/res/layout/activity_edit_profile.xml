@@ -66,8 +66,7 @@
                 android:text="@string/ganti_foto_profil"
                 android:textAlignment="center"
                 android:textColor="@color/light_blue"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textSize="17sp" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -116,7 +116,6 @@
                 android:text="@string/edit_profile"
                 android:onClick="onClick"
                 android:textColor="@color/white_true"
-                android:textSize="17sp"
                 android:textStyle="bold" />
 
 
