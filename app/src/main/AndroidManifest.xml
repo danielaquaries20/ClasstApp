@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="${usesCleartextTraffic}"
         tools:targetApi="m">
         <activity
+            android:name=".ui.trypackage.TryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />
         <activity

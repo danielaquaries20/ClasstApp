@@ -8,6 +8,7 @@ import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.databinding.ActivityLoginBinding
 import com.example.classtapp.ui.home.HomeActivity
 import com.example.classtapp.ui.register.RegisterActivity
+import com.example.classtapp.ui.trypackage.TryActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

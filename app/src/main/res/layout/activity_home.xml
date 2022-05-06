@@ -21,13 +21,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarHomeSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/ivHomePhotoProfile"
+                    android:src="@drawable/ic_baseline_search"
+                    app:menu="@menu/menu_home"
+                    app:title=" " />
+
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/ivHomePhotoProfile"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_alignParentStart="true"
-                    android:src="@drawable/ic_baseline_person"
-                    android:onClick="onClick"/>
+                    android:layout_centerVertical="true"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_baseline_person" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -41,21 +55,7 @@
                     android:textStyle="bold"
                     app:drawableStartCompat="@drawable/ic_baseline_friend" />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_search" />
-
             </RelativeLayout>
-
-            <SearchView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/background_custom_edit_text_1"
-                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
