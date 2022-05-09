@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data />
 
@@ -50,13 +50,30 @@
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutTry"
+        <RelativeLayout
+            android:id="@+id/layoutTrySearch"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_margin="17dp"
-            android:orientation="vertical"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="17dp"
+            android:visibility="gone">
 
+            <SearchView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/ivTryCloseSearch" />
+
+            <ImageView
+                android:id="@+id/ivTryCloseSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_back" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

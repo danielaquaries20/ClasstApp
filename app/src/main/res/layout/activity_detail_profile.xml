@@ -25,8 +25,8 @@
                     android:id="@+id/ivProfileBack"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:onClick="onClick"
                     android:layout_alignParentStart="true"
+                    android:onClick="onClick"
                     android:src="@drawable/ic_baseline_arrow_back" />
 
                 <ImageView

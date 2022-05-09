@@ -23,6 +23,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         when (v) {
             binding.tvDaftarAkun -> openActivity<RegisterActivity> {  }
             binding.tvLogin -> openActivity<HomeActivity> {  }
+            binding.tvLoginTry -> openActivity<TryActivity> {  }
+
         }
 
         super.onClick(v)

@@ -32,11 +32,16 @@ class TryActivity : BaseActivity<ActivityTryBinding, TryViewModel>(),
         TODO("Not yet implemented")
     }
 
-//    override fun onClick(v: View?) {
-//        when(v) {
-//            binding.ivTrySearch -> setSearchView()
-//        }
-//
-//        super.onClick(v)
-//    }
+    override fun onClick(v: View?) {
+        when(v) {
+            binding.ivTrySearch -> {
+                binding.layoutTrySearch.visibility = View.VISIBLE
+            }
+            binding.ivTryCloseSearch -> {
+                binding.layoutTrySearch.visibility = View.GONE
+            }
+        }
+
+        super.onClick(v)
+    }
 }

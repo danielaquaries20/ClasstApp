@@ -89,6 +89,19 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/tvLoginTry"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_custom_text_view_2"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/try_layout"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
 
         </LinearLayout>
 
