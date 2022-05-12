@@ -28,4 +28,6 @@
     <string name="friend">Friend</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="try_layout">Try Layout</string>
+    <string name="register">Register</string>
+    <string name="masukkan_no_handphone">Masukkan No Handphone</string>
 </resources>

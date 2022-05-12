@@ -25,9 +25,9 @@
                     android:id="@+id/ivEditProfileClose"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:onClick="onClick"
                     android:layout_alignParentStart="true"
-                    android:src="@drawable/ic_baseline_close" />
+                    android:onClick="onClick"
+                    android:src="@drawable/icon_close" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_baseline_check" />
+                    android:src="@drawable/icon_right" />
 
             </RelativeLayout>
 
@@ -57,7 +57,7 @@
                 android:contentDescription="@string/photo"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                android:src="@drawable/photo_friend" />
+                android:src="@drawable/icon_profile" />
 
             <TextView
                 android:layout_width="match_parent"

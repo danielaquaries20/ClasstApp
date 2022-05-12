@@ -26,25 +26,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/daftar_akun"
+                android:text="@string/register"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/menggunakan_akun__"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/background_custom_edit_text_1"
-                android:hint="@string/nama_pengguna"
+                android:hint="@string/name"
                 android:inputType="textEmailAddress"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
@@ -57,7 +49,7 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/background_custom_edit_text_1"
-                android:hint="@string/masukkan_akun_email"
+                android:hint="@string/masukkan_no_handphone"
                 android:inputType="textEmailAddress"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"

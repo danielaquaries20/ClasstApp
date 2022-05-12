@@ -22,16 +22,14 @@
                 android:layout_height="wrap_content">
 
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbarHomeSearch"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
+                <ImageView
+                    android:id="@+id/ivHomeSearch"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/ivHomePhotoProfile"
-                    android:src="@drawable/ic_baseline_search"
-                    app:menu="@menu/menu_home"
-                    app:title=" " />
+                    android:onClick="onClick"
+                    android:src="@drawable/icon_search" />
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -41,7 +39,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:onClick="onClick"
-                    android:src="@drawable/ic_baseline_person" />
+                    android:src="@drawable/icon_profile" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -53,9 +51,40 @@
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/ic_baseline_friend" />
+                    app:drawableStartCompat="@drawable/icon_friend" />
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutHomeSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.SearchView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_toStartOf="@id/ivHomeCloseSearch"
+                    android:background="@drawable/background_custom_edit_text_1" />
+
+                <ImageView
+                    android:id="@+id/ivHomeCloseSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_baseline_arrow_back" />
+
+            </RelativeLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

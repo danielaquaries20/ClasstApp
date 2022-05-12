@@ -20,20 +20,20 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
         super.onCreate(savedInstanceState)
         setLayoutRes(R.layout.activity_home)
 
-        setSupportActionBar(binding.toolbarHomeSearch)
+//        setSupportActionBar(binding.toolbarHomeSearch)
 
     }
 
-    override fun onCreateOptionsMenu(setMenu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_home, setMenu)
-
-        val search = setMenu?.findItem(R.id.iconMenuSearch)
-        val searchView = search?.actionView as? SearchView
-        searchView?.isSubmitButtonEnabled = true
-        searchView?.setOnQueryTextListener(this)
-
-        return true
-    }
+//    override fun onCreateOptionsMenu(setMenu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_home, setMenu)
+//
+//        val search = setMenu?.findItem(R.id.iconMenuSearch)
+//        val searchView = search?.actionView as? SearchView
+//        searchView?.isSubmitButtonEnabled = true
+//        searchView?.setOnQueryTextListener(this)
+//
+//        return true
+//    }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         TODO("Not yet implemented")
@@ -48,6 +48,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
 
         when (v) {
             binding.ivHomePhotoProfile -> openActivity<DetailProfileActivity> { }
+
+            binding.ivHomeSearch -> {
+                binding.layoutHomeSearch.visibility = View.VISIBLE
+            }
+
+            binding.ivHomeCloseSearch -> {
+                binding.layoutHomeSearch.visibility = View.GONE
+            }
+
         }
 
         super.onClick(v)
