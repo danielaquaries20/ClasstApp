@@ -68,7 +68,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
         }
     }
 
-    override fun onClick(v: View?) {
+    fun onClickRegisterActivity(v: View?) {
         when (v) {
             binding.tvRegisterNotifikasi -> sendNotification()
         }

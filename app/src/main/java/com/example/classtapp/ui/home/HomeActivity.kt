@@ -44,17 +44,27 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
     }
 
 
-    override fun onClick(v: View?) {
+    fun onClickHomeActivity(v: View?) {
 
         when (v) {
             binding.ivHomePhotoProfile -> openActivity<DetailProfileActivity> { }
 
             binding.ivHomeSearch -> {
+                binding.ivHomeSearch.visibility = View.GONE
                 binding.layoutHomeSearch.visibility = View.VISIBLE
+                binding.ivHomeSearch2.visibility = View.VISIBLE
             }
 
             binding.ivHomeCloseSearch -> {
+                binding.ivHomeSearch2.visibility = View.GONE
                 binding.layoutHomeSearch.visibility = View.GONE
+                binding.ivHomeSearch.visibility = View.VISIBLE
+            }
+
+            binding.ivHomeSearch2 -> {
+                binding.ivHomeSearch2.visibility = View.GONE
+                binding.layoutHomeSearch.visibility = View.GONE
+                binding.ivHomeSearch.visibility = View.VISIBLE
             }
 
         }

@@ -19,7 +19,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     }
 
-    override fun onClick(v: View?) {
+    fun onClickLoginActivity(v: View?) {
         when (v) {
             binding.tvDaftarAkun -> openActivity<RegisterActivity> {  }
             binding.tvLogin -> openActivity<HomeActivity> {  }

@@ -15,7 +15,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
         setLayoutRes(R.layout.activity_edit_profile)
     }
 
-    override fun onClick(v: View?) {
+    fun onClickEditProfileActivity(v: View?) {
         when (v) {
             binding.ivEditProfileClose ->onBackPressed()
         }

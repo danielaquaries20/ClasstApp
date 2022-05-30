@@ -35,9 +35,21 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     }
 
-    override fun onClick(v: View?) {
+    fun onClickMainActivity(v: View?) {
         when (v) {
-            binding.btnMasukApp -> openActivity<LoginActivity> {  }
+            binding.btnMasukApp -> {
+                binding.linearMainTwo.visibility = View.VISIBLE
+
+                Handler(mainLooper).postDelayed({
+                    binding.linearMainTwo.visibility = View.GONE
+                    openActivity<LoginActivity> {}
+                }, 1000)
+            }
+
+//            binding.btnMasukApp -> {
+//                openActivity<LoginActivity> {}
+//            }
+
         }
 
         super.onClick(v)

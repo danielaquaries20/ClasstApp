@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.detail_profile.DetailProfileActivity">
@@ -26,13 +24,17 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
-                    android:onClick="onClick"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:onClick="onClickDetailProfileActivity"
                     android:src="@drawable/icon_back" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/logout"
                     android:src="@drawable/icon_logout" />
 
             </RelativeLayout>
@@ -46,7 +48,6 @@
                 android:clickable="true"
                 android:contentDescription="@string/photo"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:src="@drawable/icon_profile" />
 
             <TextView
@@ -113,8 +114,8 @@
                 android:background="@drawable/background_custom_text_view_1"
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
+                android:onClick="onClickDetailProfileActivity"
                 android:text="@string/edit_profile"
-                android:onClick="onClick"
                 android:textColor="@color/white_true"
                 android:textStyle="bold" />
 

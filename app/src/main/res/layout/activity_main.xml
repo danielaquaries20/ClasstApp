@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data />
@@ -12,6 +11,7 @@
 
 
         <LinearLayout
+            android:id="@+id/linearMainOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -49,11 +49,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/light_blue"
-                android:onClick="onClick"
+                android:onClick="onClickMainActivity"
                 android:text="@string/masuk"
                 android:textAllCaps="false"
                 android:textColor="@color/white_true" />
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearMainTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearMainOne"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="10dp">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tunggu_sebentar_"
+                android:textColor="@color/dark_grey"
+                android:textSize="13sp" />
 
         </LinearLayout>
 

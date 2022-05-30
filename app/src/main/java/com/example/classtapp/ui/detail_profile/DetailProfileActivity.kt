@@ -18,7 +18,7 @@ class DetailProfileActivity : BaseActivity<ActivityDetailProfileBinding, DetailP
         setLayoutRes(R.layout.activity_detail_profile)
     }
 
-    override fun onClick(v: View?) {
+    fun onClickDetailProfileActivity(v: View?) {
         when (v) {
             binding.ivProfileBack -> onBackPressed()
             binding.tvProfileEditProfile -> openActivity<EditProfileActivity> {  }

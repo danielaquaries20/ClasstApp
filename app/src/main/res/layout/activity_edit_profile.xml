@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data />
@@ -26,14 +25,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
-                    android:onClick="onClick"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/close"
+                    android:onClick="onClickEditProfileActivity"
                     android:src="@drawable/icon_close" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/edit_profile"
                     android:layout_centerInParent="true"
+                    android:text="@string/edit_profile"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="17sp"
@@ -43,6 +44,8 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/right"
                     android:src="@drawable/icon_right" />
 
             </RelativeLayout>
@@ -56,7 +59,6 @@
                 android:clickable="true"
                 android:contentDescription="@string/photo"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:src="@drawable/icon_profile" />
 
             <TextView
@@ -80,6 +82,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/nama"
                 android:hint="@string/nama"
                 android:inputType="text"
                 android:minHeight="48dp"
@@ -99,6 +102,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/biodata"
                 android:hint="@string/biodata"
                 android:inputType="text"
                 android:minHeight="48dp"
@@ -119,6 +123,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/no_handphone"
                 android:hint="@string/no_handphone"
                 android:inputType="text"
                 android:minHeight="48dp"
