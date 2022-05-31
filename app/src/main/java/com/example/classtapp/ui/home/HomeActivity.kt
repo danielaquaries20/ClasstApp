@@ -2,13 +2,20 @@ package com.example.classtapp.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import androidx.appcompat.widget.SearchView
+import com.crocodic.core.base.adapter.CoreListAdapter
+import com.crocodic.core.extension.createIntent
 import com.crocodic.core.extension.openActivity
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
+import com.example.classtapp.data.constant.Const
+import com.example.classtapp.data.user.User
 import com.example.classtapp.databinding.ActivityHomeBinding
+import com.example.classtapp.databinding.ItemFriendBinding
+import com.example.classtapp.ui.detail_friend.DetailFriendActivity
 import com.example.classtapp.ui.detail_profile.DetailProfileActivity
 import com.example.classtapp.ui.trypackage.TryActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,13 +23,61 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
     SearchView.OnQueryTextListener {
+
+    private var friend = ArrayList<User?>()
+    private var friendAll = ArrayList<User?>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setLayoutRes(R.layout.activity_home)
 
-//        setSupportActionBar(binding.toolbarHomeSearch)
+        viewModel.user.observe(this) { user ->
+            binding.user = user
+        }
+
+        observe()
+        initView()
+
+        binding.svHomeSearch.setOnQueryTextListener(this)
+        getData()
+    }
+
+    private fun getData() {
+        viewModel.list()
+    }
+
+    private fun initView() {
+        binding.rvHomeListFriend.adapter =
+            CoreListAdapter<ItemFriendBinding, User>(R.layout.item_friend).initItem(friend) { position, data ->
+                activityLauncher.launch(createIntent<DetailFriendActivity> {
+                    putExtra(Const.BUNDLE.FRIEND, data)
+                }) {
+                    if (it.resultCode == 7)
+                        getData()
+                }
+
+
+//                openActivity<DetailFriendActivity> {
+//                    putExtra(Const.BUNDLE.FRIEND, data)
+//                }
+            }
 
     }
+
+
+    private fun observe() {
+        viewModel.friends.observe(this, {
+            friend.clear()
+            friendAll.clear()
+            binding.rvHomeListFriend.adapter?.notifyDataSetChanged()
+
+            friend.addAll(it)
+            friendAll.addAll(it)
+            Log.d("CekFriendAll", "DataFriendAll : $friendAll")
+            binding.rvHomeListFriend.adapter?.notifyItemInserted(0)
+        })
+    }
+
 
 //    override fun onCreateOptionsMenu(setMenu: Menu?): Boolean {
 //        menuInflater.inflate(R.menu.menu_home, setMenu)
@@ -36,11 +91,29 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
 //    }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        TODO("Not yet implemented")
+        Log.d("Keyword", "$newText")
+
+        if (newText?.isNotEmpty() == true) {
+            val filter = friendAll.filter { it?.name?.contains("$newText", true) == true }
+            Log.d("CekFilter", "Keyword : $filter")
+            friend.clear()
+            binding.rvHomeListFriend.adapter?.notifyDataSetChanged()
+            friend.addAll(filter)
+            binding.rvHomeListFriend.adapter?.notifyItemInserted(0)
+
+        } else if (newText?.isEmpty() == true) {
+            friend.clear()
+            binding.rvHomeListFriend.adapter?.notifyDataSetChanged()
+            friend.addAll(friendAll)
+            binding.rvHomeListFriend.adapter?.notifyItemInserted(0)
+        }
+        return false
+
+
     }
 
 
@@ -71,6 +144,5 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
 
         super.onClick(v)
     }
-
 
 }

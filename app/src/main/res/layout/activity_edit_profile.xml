@@ -3,7 +3,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.classtapp.data.user.User" />
+
+    </data>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,16 +47,20 @@
                     android:textStyle="bold" />
 
                 <ImageView
+                    android:id="@+id/ivEditProfileUpdate"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/right"
+                    android:onClick="onClickEditProfileActivity"
                     android:src="@drawable/icon_right" />
 
             </RelativeLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivEditProfilePhoto"
+                imageUrlProfile='@{data.photo}'
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -59,12 +69,17 @@
                 android:clickable="true"
                 android:contentDescription="@string/photo"
                 android:focusable="true"
+                android:onClick="onClickEditProfileActivity"
                 android:src="@drawable/icon_profile" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvEditProfileChangePhoto"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="onClickEditProfileActivity"
                 android:text="@string/ganti_foto_profil"
                 android:textAlignment="center"
                 android:textColor="@color/light_blue"
@@ -80,12 +95,14 @@
                 android:textSize="17sp" />
 
             <EditText
+                android:id="@+id/etEditProfileName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/nama"
                 android:hint="@string/nama"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:minHeight="48dp"
+                android:text='@{data.name}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -100,12 +117,14 @@
                 android:textSize="17sp" />
 
             <EditText
+                android:id="@+id/etEditProfileDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/biodata"
                 android:hint="@string/biodata"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:minHeight="48dp"
+                android:text='@{data.description}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -121,11 +140,12 @@
                 android:textSize="17sp" />
 
             <EditText
+                android:id="@+id/etEditProfilePhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/no_handphone"
                 android:hint="@string/no_handphone"
-                android:inputType="text"
+                android:inputType="number"
                 android:minHeight="48dp"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"

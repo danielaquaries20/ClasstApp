@@ -2,7 +2,14 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data />
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.classtapp.data.user.User" />
+
+
+    </data>
 
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -30,16 +37,19 @@
                     android:src="@drawable/icon_back" />
 
                 <ImageView
+                    android:id="@+id/ivProfileLogout"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/logout"
-                    android:src="@drawable/icon_logout" />
+                    android:src="@drawable/icon_logout"
+                    android:onClick="onClickDetailProfileActivity"/>
 
             </RelativeLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                imageUrlProfile='@{user.photo}'
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -54,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/name"
+                android:text='@{user.name}'
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="17sp"
@@ -73,7 +83,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/deskripsi_profile_anda"
+                android:text='@{user.description}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -96,7 +106,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no_handphone_anda"
+                android:text='@{user.phone}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />

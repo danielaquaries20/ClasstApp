@@ -10,10 +10,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.crocodic.core.api.ApiStatus
+import com.crocodic.core.extension.isEmptyRequired
+import com.crocodic.core.extension.openActivity
+import com.crocodic.core.extension.textOf
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.databinding.ActivityMainBinding
 import com.example.classtapp.databinding.ActivityRegisterBinding
+import com.example.classtapp.ui.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -29,7 +34,54 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
         createNotificationChannel()
 
+        observe()
+
     }
+
+    private fun observe() {
+        viewModel.apiResponse.observe(this) {
+            when (it.status) {
+                ApiStatus.LOADING -> {
+                    it.message?.let { msg -> loadingDialog.show(msg) }
+                }
+                ApiStatus.SUCCESS -> {
+                    loadingDialog.dismiss()
+                    openActivity<HomeActivity>()
+                    finishAffinity()
+                }
+                ApiStatus.WRONG, ApiStatus.ERROR -> {
+                    it.message?.let { msg -> loadingDialog.setResponse(msg) }
+                }
+            }
+        }
+    }
+
+    private fun validateForm() {
+//        if (binding.etUsername.text?.isEmpty() == true) {
+//            binding.etUsername.error = "Form must filled"
+//        } else if (binding.etPhone.text?.isEmpty() == true) {
+//            binding.etPhone.error = "Form must filled"
+//        } else if (binding.etPassword.text?.isEmpty() == true) {
+//            binding.etPassword.error = "Form must filled"
+//        }
+
+        if (listOf(
+                binding.etRegisterName,
+                binding.etRegisterPhone,
+                binding.etRegisterPassword
+            ).isEmptyRequired(R.string.lbl_required_edit_text)
+        ) {
+            return
+        }
+
+        loadingDialog.show("Registering...")
+        viewModel.register(
+            binding.etRegisterName.textOf(),
+            binding.etRegisterPhone.textOf(),
+            binding.etRegisterPassword.textOf()
+        )
+    }
+
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -71,6 +123,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
     fun onClickRegisterActivity(v: View?) {
         when (v) {
             binding.tvRegisterNotifikasi -> sendNotification()
+            binding.tvRegisterDaftarkan -> validateForm()
         }
 
         super.onClick(v)

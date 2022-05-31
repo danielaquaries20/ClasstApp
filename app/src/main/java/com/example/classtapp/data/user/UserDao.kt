@@ -3,9 +3,10 @@ package com.example.classtapp.data.user
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import com.crocodic.core.data.CoreDao
 
 @Dao
-abstract class UserDao {
+abstract class UserDao : CoreDao<User> {
     @Query("DELETE FROM User")
     abstract suspend fun deleteAll()
 

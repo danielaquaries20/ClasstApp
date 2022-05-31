@@ -31,12 +31,13 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/etRegisterName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/name"
-                android:inputType="textEmailAddress"
+                android:inputType="textCapWords"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
@@ -45,12 +46,13 @@
 
 
             <EditText
+                android:id="@+id/etRegisterPhone"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/masukkan_no_handphone"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
@@ -58,6 +60,7 @@
                 android:autofillHints="@string/masukkan_no_handphone" />
 
             <EditText
+                android:id="@+id/etRegisterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
@@ -72,12 +75,14 @@
 
 
             <TextView
+                android:id="@+id/tvRegisterDaftarkan"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/background_custom_text_view_1"
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
+                android:onClick="onClickRegisterActivity"
                 android:text="@string/daftarkan"
                 android:textColor="@color/white_true"
                 android:textStyle="bold" />

@@ -12,4 +12,7 @@ class DetailProfileViewModel @Inject constructor(
     private val apiService: ApiService,
     private val userDao: UserDao
 ) : BaseViewModel(apiService) {
+
+    val user = userDao.getUser()
+
 }

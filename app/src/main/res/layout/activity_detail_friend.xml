@@ -3,7 +3,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.classtapp.data.user.User" />
+
+
+    </data>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,20 +28,22 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/ivDetailFriendBack"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
+                    android:onClick="onClickDetailFriendActivity"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/back"
                     android:src="@drawable/icon_back" />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/settings"
-                    android:src="@drawable/icon_settings" />
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:background="?attr/selectableItemBackground"-->
+<!--                    android:contentDescription="@string/settings"-->
+<!--                    android:src="@drawable/icon_settings" />-->
 
             </RelativeLayout>
 
@@ -45,6 +54,7 @@
                 android:layout_marginTop="25dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    imageUrlProfile='@{data.photo}'
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
@@ -52,7 +62,7 @@
                     android:clickable="true"
                     android:contentDescription="@string/photo"
                     android:focusable="true"
-                    android:src="@drawable/photo_friend" />
+                    android:src="@drawable/icon_profile" />
 
                 <ImageView
                     android:layout_width="30dp"
@@ -75,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/name"
+                android:text='@{data.name}'
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="17sp"
@@ -94,7 +104,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/deskripsi_teman"
+                android:text='@{data.description}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -117,7 +127,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no_handphone_teman"
+                android:text='@{data.phone}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />

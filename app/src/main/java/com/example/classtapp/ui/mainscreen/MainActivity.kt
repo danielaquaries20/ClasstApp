@@ -8,6 +8,7 @@ import com.crocodic.core.extension.openActivity
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.databinding.ActivityMainBinding
+import com.example.classtapp.ui.home.HomeActivity
 import com.example.classtapp.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,7 +43,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
                 Handler(mainLooper).postDelayed({
                     binding.linearMainTwo.visibility = View.GONE
-                    openActivity<LoginActivity> {}
+                    viewModel.checkLogin { isLogin ->
+                        if (isLogin) {
+                            openActivity<HomeActivity>()
+                        } else {
+                            openActivity<LoginActivity>()
+                        }
+                    }
                 }, 1000)
             }
 
