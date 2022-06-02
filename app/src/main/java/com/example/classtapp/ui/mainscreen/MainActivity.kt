@@ -38,24 +38,31 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     fun onClickMainActivity(v: View?) {
         when (v) {
-            binding.btnMasukApp -> {
-                binding.linearMainTwo.visibility = View.VISIBLE
-
-                Handler(mainLooper).postDelayed({
-                    binding.linearMainTwo.visibility = View.GONE
-                    viewModel.checkLogin { isLogin ->
-                        if (isLogin) {
-                            openActivity<HomeActivity>()
-                        } else {
-                            openActivity<LoginActivity>()
-                        }
-                    }
-                }, 1000)
-            }
-
 //            binding.btnMasukApp -> {
-//                openActivity<LoginActivity> {}
+//                binding.linearMainTwo.visibility = View.VISIBLE
+//
+//                Handler(mainLooper).postDelayed({
+//                    binding.linearMainTwo.visibility = View.GONE
+//                    viewModel.checkLogin { isLogin ->
+//                        if (isLogin) {
+//                            openActivity<HomeActivity>()
+//                        } else {
+//                            openActivity<LoginActivity>()
+//                        }
+//                    }
+//                }, 1000)
 //            }
+
+            binding.btnMasukApp -> {
+                viewModel.checkLogin { isLogin ->
+                    if (isLogin) {
+                        openActivity<HomeActivity>()
+                    } else {
+                        openActivity<LoginActivity>()
+                    }
+                }
+
+            }
 
         }
 

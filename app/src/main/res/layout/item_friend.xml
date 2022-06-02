@@ -15,6 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -22,7 +24,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivItemPhotoProfile"
-            imageUrlProfile='@{data.photo}'
+            imageUrlProfile='@{data.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png" : data.photo}'
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/photo_friend"

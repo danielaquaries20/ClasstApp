@@ -5,112 +5,126 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        
+
         <variable
             name="user"
             type="com.example.classtapp.data.user.User" />
-        
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="activity"
+            type="com.example.classtapp.ui.home.HomeActivity" />
+
+
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="17dp"
         tools:context=".ui.home.HomeActivity">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="17dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_marginBottom="5dp">
 
 
-                <ImageView
-                    android:id="@+id/ivHomeSearch"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/search"
-                    android:onClick="onClickHomeActivity"
-                    android:src="@drawable/icon_search"
-                    android:visibility="visible" />
+            <ImageView
+                android:id="@+id/ivHomeSearch"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/search"
+                android:onClick="onClickHomeActivity"
+                android:src="@drawable/icon_search"
+                android:visibility="visible" />
 
-                <ImageView
-                    android:id="@+id/ivHomeSearch2"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/search"
-                    android:onClick="onClickHomeActivity"
-                    android:src="@drawable/icon_search"
-                    android:visibility="gone" />
+            <ImageView
+                android:id="@+id/ivHomeSearch2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/search"
+                android:onClick="onClickHomeActivity"
+                android:src="@drawable/icon_search"
+                android:visibility="gone" />
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/ivHomePhotoProfile"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    imageUrlProfile='@{user.photo}'
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackground"
-                    android:onClick="onClickHomeActivity"
-                    android:src="@drawable/icon_profile" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivHomePhotoProfile"
+                imageUrlProfile='@{user.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png" : user.photo}'
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="onClickHomeActivity"
+                android:src="@drawable/icon_profile" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:drawablePadding="5dp"
-                    android:text="@string/friend"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/icon_friend" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layoutHomeSearch"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:visibility="gone">
+                android:layout_centerInParent="true"
+                android:drawablePadding="5dp"
+                android:text="@string/friend"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/icon_friend" />
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/svHomeSearch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_toStartOf="@id/ivHomeCloseSearch"
-                    android:background="@drawable/background_custom_edit_text_1" />
+        </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ivHomeCloseSearch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/close"
-                    android:onClick="onClickHomeActivity"
-                    android:src="@drawable/ic_baseline_arrow_back" />
+        <RelativeLayout
+            android:id="@+id/layoutHomeSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:visibility="gone">
 
-            </RelativeLayout>
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/svHomeSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toStartOf="@id/ivHomeCloseSearch"
+                android:background="@drawable/background_custom_edit_text_1"
+                android:imeOptions="actionSearch"
+                app:iconifiedByDefault="false"
+                app:queryHint="Search Friend" />
 
+            <ImageView
+                android:id="@+id/ivHomeCloseSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/close"
+                android:onClick="onClickHomeActivity"
+                android:src="@drawable/ic_baseline_arrow_back" />
+
+        </RelativeLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srHomeRefreshData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHomeListFriend"
@@ -122,11 +136,9 @@
                 tools:itemCount="5"
                 tools:listitem="@layout/item_friend" />
 
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </LinearLayout>
-
-
-    </ScrollView>
+    </LinearLayout>
 
 </layout>
 

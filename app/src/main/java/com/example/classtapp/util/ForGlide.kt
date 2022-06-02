@@ -23,7 +23,7 @@ class ForGlide {
                     .load(imageUrl)
                     .apply(RequestOptions.centerCropTransform())
                     .placeholder(R.drawable.placeholder_image)
-                    .error(R.drawable.error_image)
+                    .error(R.drawable.error_image_2)
                     .into(view)
             }
         }
@@ -39,8 +39,8 @@ class ForGlide {
                     .with(view.context)
                     .load(imageUrl)
                     .apply(RequestOptions.centerCropTransform())
-                    .placeholder(R.drawable.upload_photo)
-                    .error(R.drawable.error_image)
+                    .placeholder(R.drawable.placeholder_image)
+                    .error(R.drawable.error_image_2)
                     .into(view)
             }
         }

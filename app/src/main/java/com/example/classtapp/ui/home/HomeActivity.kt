@@ -2,6 +2,8 @@ package com.example.classtapp.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Menu
 import android.view.View
@@ -17,6 +19,7 @@ import com.example.classtapp.databinding.ActivityHomeBinding
 import com.example.classtapp.databinding.ItemFriendBinding
 import com.example.classtapp.ui.detail_friend.DetailFriendActivity
 import com.example.classtapp.ui.detail_profile.DetailProfileActivity
+import com.example.classtapp.ui.login.LoginActivity
 import com.example.classtapp.ui.trypackage.TryActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,6 +46,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
     }
 
     private fun getData() {
+//        binding.isLoading = true
         viewModel.list()
     }
 
@@ -55,18 +59,26 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
                     if (it.resultCode == 7)
                         getData()
                 }
-
-
 //                openActivity<DetailFriendActivity> {
 //                    putExtra(Const.BUNDLE.FRIEND, data)
 //                }
             }
 
+        binding.srHomeRefreshData.setOnRefreshListener {
+            getData()
+            Handler(mainLooper).postDelayed({
+                binding.srHomeRefreshData.isRefreshing = false
+            }, 1000)
+
+        }
+
+
     }
 
 
     private fun observe() {
-        viewModel.friends.observe(this, {
+        viewModel.friends.observe(this) {
+//            binding.isLoading = false
             friend.clear()
             friendAll.clear()
             binding.rvHomeListFriend.adapter?.notifyDataSetChanged()
@@ -75,7 +87,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
             friendAll.addAll(it)
             Log.d("CekFriendAll", "DataFriendAll : $friendAll")
             binding.rvHomeListFriend.adapter?.notifyItemInserted(0)
-        })
+        }
     }
 
 
