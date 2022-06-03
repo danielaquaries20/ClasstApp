@@ -74,12 +74,12 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="3dp"
                     android:layout_marginBottom="3dp"
-                    android:onClick="onClickDetailFriendActivity"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:contentDescription="@string/like"
                     android:focusable="true"
-                    android:src="@drawable/ic_baseline_favorite_border" />
+                    android:onClick="onClickDetailFriendActivity"
+                    android:src='@{data.likeByYou ? @drawable/ic_baseline_favorite : @drawable/ic_baseline_favorite_border }' />
 
 
             </RelativeLayout>
