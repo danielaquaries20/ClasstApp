@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data />
 
@@ -67,30 +68,32 @@
                 android:paddingBottom="5dp" />
 
 
-            <TextView
+            <Button
                 android:id="@+id/tvLogin"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/background_custom_text_view_1"
-                android:foregroundTint="@color/grey"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/light_blue"
                 android:gravity="center"
                 android:onClick="onClickLoginActivity"
                 android:text="@string/login"
-                android:textColor="@color/white_true"
-                android:textStyle="bold" />
+                android:textAllCaps="false"
+                android:textColor="@color/white_true" />
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tvDaftarAkun"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/background_custom_text_view_2"
+                android:layout_height="50dp"
+                android:layout_marginTop="7dp"
+                android:backgroundTint="@color/white"
                 android:gravity="center"
                 android:onClick="onClickLoginActivity"
-                android:text="@string/belum_punnya_akun_"
+                android:text="@string/belum_punya_akun_"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                app:cornerRadius="2dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp" />
 
             <TextView
                 android:id="@+id/tvLoginTry"

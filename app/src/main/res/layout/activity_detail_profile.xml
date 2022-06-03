@@ -116,18 +116,18 @@
                 android:layout_height="1dp"
                 android:background="@color/dark_grey" />
 
-            <TextView
+            <Button
                 android:id="@+id/tvProfileEditProfile"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/background_custom_text_view_1"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/light_blue"
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
+                android:textAllCaps="false"
                 android:onClick="onClickDetailProfileActivity"
                 android:text="@string/edit_profile"
-                android:textColor="@color/white_true"
-                android:textStyle="bold" />
+                android:textColor="@color/white_true" />
 
 
         </LinearLayout>

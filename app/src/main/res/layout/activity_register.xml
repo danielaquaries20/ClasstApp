@@ -19,8 +19,8 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/icon"
-                android:contentDescription="@string/icon_crocodic" />
+                android:contentDescription="@string/icon_crocodic"
+                android:src="@drawable/icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,14 +35,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="25dp"
+                android:autofillHints="@string/name"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/name"
                 android:inputType="textCapWords"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:autofillHints="@string/name" />
+                android:paddingBottom="5dp" />
 
 
             <EditText
@@ -50,42 +50,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
+                android:autofillHints="@string/masukkan_no_handphone"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/masukkan_no_handphone"
                 android:inputType="number"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:autofillHints="@string/masukkan_no_handphone" />
+                android:paddingBottom="5dp" />
 
             <EditText
                 android:id="@+id/etRegisterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
+                android:autofillHints="@string/password"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:autofillHints="@string/password" />
+                android:paddingBottom="5dp" />
 
 
-            <TextView
+            <Button
                 android:id="@+id/tvRegisterDaftarkan"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/background_custom_text_view_1"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/light_blue"
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
                 android:onClick="onClickRegisterActivity"
                 android:text="@string/daftarkan"
-                android:textColor="@color/white_true"
-                android:textStyle="bold" />
+                android:textAllCaps="false"
+                android:textColor="@color/white_true" />
 
             <TextView
                 android:id="@+id/tvRegisterNotifikasi"
@@ -94,11 +94,11 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/background_custom_text_view_2"
                 android:gravity="center"
-                android:visibility="gone"
                 android:onClick="onClickRegisterActivity"
                 android:text="@string/notifikasi"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
 
         </LinearLayout>

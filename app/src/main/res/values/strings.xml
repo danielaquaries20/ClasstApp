@@ -39,5 +39,5 @@
     <string name="right">Right</string>
     <string name="search">Search</string>
     <string name="lbl_required_edit_text">Form must filled</string>
-    <string name="belum_punnya_akun_">Belum Punnya Akun ?</string>
+    <string name="belum_punya_akun_">Belum Punya Akun ?</string>
 </resources>
