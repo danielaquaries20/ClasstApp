@@ -91,6 +91,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
                             binding.etEditProfileDescription.textOf(),
                             it
                         )
+                        setResult(7)
                     }
                 } else {
                     viewModel.updateNoImage(
@@ -98,7 +99,9 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
                         "SMK Negeri 11 Semarang",
                         binding.etEditProfileDescription.textOf()
                     )
+                    setResult(7)
                 }
+
             }
 
 //            viewModel.user.observe(this) {

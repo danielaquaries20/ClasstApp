@@ -19,8 +19,8 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/icon"
-                android:contentDescription="@string/icon_crocodic" />
+                android:contentDescription="@string/icon_crocodic"
+                android:src="@drawable/icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,28 +43,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="25dp"
+                android:autofillHints="@string/masukkan_akun_email"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/masukkan_no_handphone"
                 android:inputType="number"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:autofillHints="@string/masukkan_akun_email" />
+                android:paddingBottom="5dp" />
 
             <EditText
                 android:id="@+id/etLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
+                android:autofillHints="@string/password"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:autofillHints="@string/password" />
+                android:paddingBottom="5dp" />
 
 
             <TextView
@@ -75,8 +75,8 @@
                 android:background="@drawable/background_custom_text_view_1"
                 android:foregroundTint="@color/grey"
                 android:gravity="center"
-                android:text="@string/login"
                 android:onClick="onClickLoginActivity"
+                android:text="@string/login"
                 android:textColor="@color/white_true"
                 android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                 android:background="@drawable/background_custom_text_view_2"
                 android:gravity="center"
                 android:onClick="onClickLoginActivity"
-                android:text="@string/daftar_akun_"
+                android:text="@string/belum_punnya_akun_"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -102,8 +102,8 @@
                 android:onClick="onClickLoginActivity"
                 android:text="@string/try_layout"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                android:visibility="gone" />
 
 
         </LinearLayout>

@@ -94,6 +94,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/background_custom_text_view_2"
                 android:gravity="center"
+                android:visibility="gone"
                 android:onClick="onClickRegisterActivity"
                 android:text="@string/notifikasi"
                 android:textColor="@color/black"

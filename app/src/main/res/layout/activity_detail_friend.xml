@@ -32,18 +32,18 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
-                    android:onClick="onClickDetailFriendActivity"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/back"
+                    android:onClick="onClickDetailFriendActivity"
                     android:src="@drawable/icon_back" />
 
-<!--                <ImageView-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_alignParentEnd="true"-->
-<!--                    android:background="?attr/selectableItemBackground"-->
-<!--                    android:contentDescription="@string/settings"-->
-<!--                    android:src="@drawable/icon_settings" />-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="30dp"-->
+                <!--                    android:layout_height="30dp"-->
+                <!--                    android:layout_alignParentEnd="true"-->
+                <!--                    android:background="?attr/selectableItemBackground"-->
+                <!--                    android:contentDescription="@string/settings"-->
+                <!--                    android:src="@drawable/icon_settings" />-->
 
             </RelativeLayout>
 
@@ -65,6 +65,7 @@
                     android:src="@drawable/icon_profile" />
 
                 <ImageView
+                    android:id="@+id/ivDetailFriendLike"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
@@ -72,11 +73,12 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="3dp"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:layout_marginBottom="3dp"
+                    android:onClick="onClickDetailFriendActivity"
                     android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
                     android:contentDescription="@string/like"
+                    android:focusable="true"
                     android:src="@drawable/ic_baseline_favorite_border" />
 
 
