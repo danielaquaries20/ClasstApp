@@ -51,8 +51,6 @@ class ForGlide {
                         .with(view.context)
                         .load(imageUrl)
                         .apply(requestOption)
-                        .transform(CenterCrop())
-                        .transition(DrawableTransitionOptions.withCrossFade())
                         .error(R.drawable.error_image_2)
                         .into(view)
 
