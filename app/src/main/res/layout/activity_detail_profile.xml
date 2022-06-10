@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -49,7 +50,8 @@
             </RelativeLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                imageUrlProfile='@{user.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png" : user.photo}'
+                app:imageUrlProfile='@{user.photo}'
+                app:initialProfile='@{user.name}'
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"

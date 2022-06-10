@@ -1,8 +1,11 @@
 package com.example.classtapp.util
 
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.example.classtapp.R
 import de.hdodenhof.circleimageview.CircleImageView
@@ -29,20 +32,34 @@ class ForGlide {
         }
 
         @JvmStatic
-        @BindingAdapter(value = ["imageUrlProfile"], requireAll = false)
-        fun loadImageProfile(view: CircleImageView, imageUrl: String?){
-            view.setImageDrawable(null)
+        @BindingAdapter(value = ["imageUrlProfile", "initialProfile"], requireAll = false)
+        fun loadImageProfile(view: CircleImageView, imageUrl: String?, initialProfile: String?){
 
-            imageUrl?.let {
 
-                Glide
-                    .with(view.context)
-                    .load(imageUrl)
-                    .apply(RequestOptions.centerCropTransform())
-                    .placeholder(R.drawable.placeholder_image)
-                    .error(R.drawable.error_image_2)
-                    .into(view)
+            view.post {
+                val avatar = StringMasker().generateTextDrawable(
+                    StringMasker().getInitial(initialProfile?.trim()),
+                    ContextCompat.getColor(view.context, R.color.stated_grey),
+                    view.measuredWidth
+                )
+
+                if (imageUrl.isNullOrEmpty()) {
+                    view.setImageDrawable(avatar)
+                } else {
+                    val requestOption = RequestOptions().placeholder(avatar).centerCrop()
+                    Glide
+                        .with(view.context)
+                        .load(imageUrl)
+                        .apply(requestOption)
+                        .transform(CenterCrop())
+                        .transition(DrawableTransitionOptions.withCrossFade())
+                        .error(R.drawable.error_image_2)
+                        .into(view)
+
+                }
+
             }
+
         }
 
 

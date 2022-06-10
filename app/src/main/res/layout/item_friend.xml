@@ -24,10 +24,10 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivItemPhotoProfile"
-            imageUrlProfile='@{data.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png" : data.photo}'
+            app:imageUrlProfile='@{data.photo}'
+            app:initialProfile='@{data.name}'
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@drawable/photo_friend"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
