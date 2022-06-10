@@ -51,7 +51,7 @@ class ForGlide {
                         .with(view.context)
                         .load(imageUrl)
                         .apply(requestOption)
-                        .error(R.drawable.error_image_2)
+                        .error(avatar)
                         .into(view)
 
                 }
