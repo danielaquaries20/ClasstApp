@@ -58,15 +58,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
 
-    fun onClickLoginActivity(v: View?) {
-        when (v) {
+    fun onClickLoginActivity(view: View?) {
+        when (view) {
             binding.tvDaftarAkun -> openActivity<RegisterActivity> {  }
             binding.tvLogin -> validateForm()
             binding.tvLoginTry -> openActivity<TryActivity> {  }
 
         }
-
-        super.onClick(v)
     }
 
 }

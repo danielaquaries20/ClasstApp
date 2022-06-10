@@ -1,11 +1,8 @@
 package com.example.classtapp.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import android.view.Menu
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import com.crocodic.core.base.adapter.CoreListAdapter
@@ -19,8 +16,6 @@ import com.example.classtapp.databinding.ActivityHomeBinding
 import com.example.classtapp.databinding.ItemFriendBinding
 import com.example.classtapp.ui.detail_friend.DetailFriendActivity
 import com.example.classtapp.ui.detail_profile.DetailProfileActivity
-import com.example.classtapp.ui.login.LoginActivity
-import com.example.classtapp.ui.trypackage.TryActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

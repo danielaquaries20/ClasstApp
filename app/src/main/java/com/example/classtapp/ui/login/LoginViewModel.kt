@@ -49,7 +49,6 @@ class LoginViewModel @Inject constructor(
                         apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
                     }
                 }
-
                 override fun onError(e: Throwable) {
                     apiResponse.postValue(ApiResponse().responseError(e))
                 }
