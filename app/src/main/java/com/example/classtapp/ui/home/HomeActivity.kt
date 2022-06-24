@@ -42,7 +42,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
 
     private fun getData() {
 //        binding.isLoading = true
-        viewModel.list()
+        viewModel.
+        list()
     }
 
     private fun initView() {

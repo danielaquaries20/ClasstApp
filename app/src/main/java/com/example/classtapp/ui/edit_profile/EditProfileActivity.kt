@@ -85,7 +85,8 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
                 loadingDialog.show("Updating...")
                 if (filePhoto != null) {
                     filePhoto?.let {
-                        viewModel.update(
+                        viewModel.
+                        update(
                             binding.etEditProfileName.textOf(),
                             "SMK Negeri 11 Semarang",
                             binding.etEditProfileDescription.textOf(),
