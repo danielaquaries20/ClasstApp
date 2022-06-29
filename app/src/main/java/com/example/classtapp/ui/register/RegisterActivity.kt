@@ -19,6 +19,7 @@ import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.databinding.ActivityMainBinding
 import com.example.classtapp.databinding.ActivityRegisterBinding
 import com.example.classtapp.ui.home.HomeActivity
+import com.example.classtapp.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -46,7 +47,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
                 }
                 ApiStatus.SUCCESS -> {
                     loadingDialog.dismiss()
-                    openActivity<HomeActivity>()
+                    openActivity<LoginActivity>()
                     finishAffinity()
                 }
                 ApiStatus.WRONG, ApiStatus.ERROR -> {
@@ -75,7 +76,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
         }
 
         loadingDialog.show("Registering...")
-        viewModel.register(
+        viewModel.registerClasstApp(
             binding.etRegisterName.textOf(),
             binding.etRegisterPhone.textOf(),
             binding.etRegisterPassword.textOf()

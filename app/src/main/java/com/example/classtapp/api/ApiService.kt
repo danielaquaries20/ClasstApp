@@ -16,6 +16,16 @@ interface ApiService {
         @Field("device_token") deviceToken: String?
     ): Single<String>
 
+    @FormUrlEncoded
+    @POST("api/kelasku/register")
+    fun registerClasstApp(
+        @Field("name") name: String?,
+        @Field("phone") phone: String?,
+        @Field("password") password: String?,
+        @Field("class") kelas: String?,
+        @Field("bio") bio: String?
+    ): Single<String>
+
 
     //Dummy API
     @FormUrlEncoded
