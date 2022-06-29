@@ -11,6 +11,10 @@ class Const {
         const val PASSWORD = "password"
     }
 
+    object BEARERTOKEN {
+        const val TOKEN = "token"
+    }
+
     object BUNDLE {
         const val FRIEND = "friend"
         const val SELF = "self"

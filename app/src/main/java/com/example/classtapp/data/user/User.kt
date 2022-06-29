@@ -50,6 +50,14 @@ data class User(
 
     @Expose
     @SerializedName("phone")
-    val phone: String?
+    val phone: String?,
+
+    @Expose
+    @SerializedName("bio")
+    val bio: String?,
+
+    @Expose
+    @SerializedName("class")
+    val kelas: String?
 
 ) : Parcelable

@@ -27,6 +27,37 @@ class LoginViewModel @Inject constructor(
     private val session: CoreSession
 ) : BaseViewModel(apiService) {
 
+    fun loginClasstApp(phone: String?, password: String?) = viewModelScope.launch {
+        apiResponse.postValue(ApiResponse().responseLoading("Logging in..."))
+        apiService.loginClasstApp(phone, password, "device token success")
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribeWith(object : ApiObserver(true) {
+                override fun onSuccess(t: String) {
+                    val responseJson = JSONObject(t)
+
+                    val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                    val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+                    if (apiStatus == ApiCode.SUCCESS) {
+                        val user = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                        val token = responseJson.getString("token")
+                        token.let { session.setValue(Const.BEARERTOKEN.TOKEN, it) }
+                        phone?.let { session.setValue(Const.LOGIN.PHONE, it) }
+                        password?.let { session.setValue(Const.LOGIN.PASSWORD, it) }
+                        saveUser(user)
+                        apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                    } else {
+                        apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                    }
+                }
+                override fun onError(e: Throwable) {
+                    apiResponse.postValue(ApiResponse().responseError(e))
+                }
+            })
+    }
+
+
     fun login(phone: String?, password: String?) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("Logging in..."))
         apiService.login(phone, password)

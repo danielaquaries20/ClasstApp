@@ -6,6 +6,18 @@ import retrofit2.http.*
 
 interface ApiService {
 
+    //Real API
+
+    @FormUrlEncoded
+    @POST("api/kelasku/login")
+    fun loginClasstApp(
+        @Field("phone") phone: String?,
+        @Field("password") password: String?,
+        @Field("device_token") deviceToken: String?
+    ): Single<String>
+
+
+    //Dummy API
     @FormUrlEncoded
     @POST("login")
     fun login(

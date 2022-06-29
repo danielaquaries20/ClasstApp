@@ -42,8 +42,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     }
 
     private fun validateForm() {
-        if (binding.etLoginEmail.text?.isEmpty() == true) {
-            binding.etLoginEmail.error = "Form must filled"
+        if (binding.etLoginNoHp.text?.isEmpty() == true) {
+            binding.etLoginNoHp.error = "Form must filled"
         } else if (binding.etLoginPassword.text?.isEmpty() == true) {
             binding.etLoginPassword.error = "Form must filled"
         }
@@ -53,7 +53,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 //        }
 
         loadingDialog.show("Logging in...")
-        viewModel.login(binding.etLoginEmail.textOf(), binding.etLoginPassword.textOf())
+        viewModel.loginClasstApp(binding.etLoginNoHp.textOf(), binding.etLoginPassword.textOf())
     }
 
 

@@ -5,6 +5,7 @@ import com.crocodic.core.BuildConfig
 import com.crocodic.core.data.CoreSession
 import com.crocodic.core.helper.okhttp.SSLTrust
 import com.example.classtapp.api.ApiService
+import com.example.classtapp.data.constant.Const
 import com.example.classtapp.data.room.AppDatabase
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
@@ -40,7 +41,7 @@ class DataModule {
     fun provideSession(@ApplicationContext context: Context) = CoreSession(context)
 
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(session: CoreSession): OkHttpClient {
         val unsafeTrustManager = SSLTrust().createUnsafeTrustManager()
         val sslContext = SSLContext.getInstance("SSL")
         sslContext.init(null, arrayOf(unsafeTrustManager), null)
@@ -51,7 +52,10 @@ class DataModule {
             .writeTimeout(90, TimeUnit.SECONDS)
             .addInterceptor { chain ->
                 val original = chain.request()
+                val token = session.getString(Const.BEARERTOKEN.TOKEN)
                 val requestBuilder = original.newBuilder()
+                    .header("Authorization", "Bearer $token")
+                    .header("Accept", "application/json")
                     .method(original.method, original.body)
                 val request = requestBuilder.build()
                 chain.proceed(request)
@@ -68,10 +72,13 @@ class DataModule {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://neptune74.crocodic.net/myfriend-kelasindustri/public/api/")
+            .baseUrl("https://magang.crocodic.net/ki/kelompok_3/kelasku-app/public/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)
     }
+
+    //Real URL = https://magang.crocodic.net/ki/kelompok_3/kelasku-app/public/
+    //Dummy URL = https://neptune74.crocodic.net/myfriend-kelasindustri/public/api/
 }

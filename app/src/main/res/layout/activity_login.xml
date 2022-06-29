@@ -40,11 +40,11 @@
                 android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/etLoginEmail"
+                android:id="@+id/etLoginNoHp"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="25dp"
-                android:autofillHints="@string/masukkan_akun_email"
+                android:autofillHints="@string/masukkan_no_handphone"
                 android:background="@drawable/background_custom_edit_text_1"
                 android:hint="@string/masukkan_no_handphone"
                 android:inputType="number"
