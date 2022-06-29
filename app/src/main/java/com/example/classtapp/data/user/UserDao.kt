@@ -19,5 +19,7 @@ abstract class UserDao : CoreDao<User> {
     @Query("SELECT id FROM User WHERE idRoom = 1")
     abstract suspend fun getUserId(): Int
 
+//    @Query("SELECT * FROM User WHERE idRoom != 1")
+//    abstract fun getAllUser(): LiveData<User?>
 
 }

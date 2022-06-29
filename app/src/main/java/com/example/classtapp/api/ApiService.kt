@@ -7,7 +7,6 @@ import retrofit2.http.*
 interface ApiService {
 
     //Real API
-
     @FormUrlEncoded
     @POST("api/kelasku/login")
     fun loginClasstApp(
@@ -25,6 +24,9 @@ interface ApiService {
         @Field("class") kelas: String?,
         @Field("bio") bio: String?
     ): Single<String>
+
+    @GET("api/kelasku")
+    fun getListUser(): Single<String>
 
 
     //Dummy API

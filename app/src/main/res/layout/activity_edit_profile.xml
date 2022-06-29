@@ -126,7 +126,7 @@
                 android:hint="@string/biodata"
                 android:inputType="textMultiLine"
                 android:minHeight="48dp"
-                android:text='@{data.description}'
+                android:text='@{data.bio}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />

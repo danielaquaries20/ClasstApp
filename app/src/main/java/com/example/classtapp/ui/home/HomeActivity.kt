@@ -42,8 +42,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
 
     private fun getData() {
 //        binding.isLoading = true
-        viewModel.
-        list()
+        viewModel.listFriend()
     }
 
     private fun initView() {
@@ -76,15 +75,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
         binding.isLoading = true
         viewModel.friends.observe(this) {
             val sortName = it.sortedBy { sort ->
-                sort.name
+                sort.idRoom != 1
             }
+            val filter = it.filter { it.idRoom != 1 }
 
             friend.clear()
             friendAll.clear()
             binding.rvHomeListFriend.adapter?.notifyDataSetChanged()
 
-            friend.addAll(sortName)
-            friendAll.addAll(sortName)
+            friend.addAll(filter)
+            friendAll.addAll(filter)
             Log.d("CekFriendAll", "DataFriendAll : $friendAll")
             binding.rvHomeListFriend.adapter?.notifyItemInserted(0)
             binding.isLoading = false

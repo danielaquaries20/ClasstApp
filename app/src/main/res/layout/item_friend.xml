@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:maxLines="1"
-                android:text='@{data.description}'
+                android:text='@{data.bio}'
                 android:textColor="@color/black" />
 
         </LinearLayout>

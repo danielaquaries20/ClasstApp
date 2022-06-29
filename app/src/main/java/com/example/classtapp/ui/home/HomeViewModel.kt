@@ -32,6 +32,36 @@ class HomeViewModel @Inject constructor(
     val friends = MutableLiveData<List<User>>()
     val user = userDao.getUser()
 
+    fun listFriend() = viewModelScope.launch {
+        apiResponse.postValue(ApiResponse().responseLoading())
+        apiService.getListUser()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribeWith(object : ApiObserver(true) {
+                override fun onSuccess(t: String) {
+                    val responseJson = JSONObject(t)
+
+                    val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                    val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+                    if (apiStatus == ApiCode.SUCCESS) {
+                        val user = responseJson.getJSONArray(ApiCode.DATA).toList<User>(gson)
+                        friends.postValue(user)
+                        Log.d("CekDataUser", "$user")
+
+                        apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                    } else {
+                        apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                    }
+                }
+
+                override fun onError(e: Throwable) {
+                    apiResponse.postValue(ApiResponse().responseError(e))
+                }
+            })
+    }
+
+
     fun list() = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading())
         val userId = userDao.getUserId()

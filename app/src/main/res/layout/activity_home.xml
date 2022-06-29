@@ -61,15 +61,15 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                app:imageUrlProfile='@{user.photo}'
-                app:initialProfile='@{user.name}'
                 android:id="@+id/ivHomePhotoProfile"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:background="?attr/selectableItemBackground"
-                android:onClick="onClickHomeActivity" />
+                android:onClick="onClickHomeActivity"
+                app:imageUrlProfile='@{user.photo}'
+                app:initialProfile='@{user.name}' />
 
             <TextView
                 android:layout_width="wrap_content"
