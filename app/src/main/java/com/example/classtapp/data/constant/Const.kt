@@ -15,6 +15,10 @@ class Const {
         const val TOKEN = "token"
     }
 
+    object IDFRIEND {
+        val ID = Int
+    }
+
     object BUNDLE {
         const val FRIEND = "friend"
         const val SELF = "self"

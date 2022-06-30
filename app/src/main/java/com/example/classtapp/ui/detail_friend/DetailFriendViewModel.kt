@@ -11,6 +11,7 @@ import com.crocodic.core.helper.log.Log
 import com.example.classtapp.api.ApiService
 import com.example.classtapp.base.activity.BaseViewModel
 import com.example.classtapp.data.model.LikeResponse
+import com.example.classtapp.data.user.User
 import com.example.classtapp.data.user.UserDao
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -30,7 +31,42 @@ class DetailFriendViewModel @Inject constructor(
 ) : BaseViewModel(apiService) {
 
     val userAccount = userDao.getUser()
+    val friendAccount = userDao.getFirend()
     val likeData = MutableLiveData<LikeResponse>()
+
+    fun getFriend(id: Int?) =
+        viewModelScope.launch {
+            apiResponse.postValue(ApiResponse().responseLoading())
+            apiService.getUserById(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribeWith(object : ApiObserver(true) {
+                    override fun onSuccess(t: String) {
+                        val responseJson = JSONObject(t)
+
+                        val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                        val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+//                        val apiInfo = responseJson.getString("info")
+
+                        if (apiStatus == ApiCode.SUCCESS || apiStatus == 201) {
+                            val getFriend = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                            saveFriend(getFriend)
+                            apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                        } else {
+                            apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                        }
+                    }
+
+                    override fun onError(e: Throwable) {
+                        apiResponse.postValue(ApiResponse().responseError(e))
+                    }
+                })
+        }
+
+
+    private fun saveFriend(user: User) = viewModelScope.launch {
+        userDao.insert(user.copy(idRoom = 2))
+    }
 
     fun like(id: Int?, id_i_like: Int?) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("like..."))

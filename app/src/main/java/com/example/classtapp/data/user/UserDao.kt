@@ -13,6 +13,9 @@ abstract class UserDao : CoreDao<User> {
     @Query("SELECT * FROM User WHERE idRoom = 1")
     abstract fun getUser(): LiveData<User?>
 
+    @Query("SELECT * FROM User WHERE idRoom = 2")
+    abstract fun getFirend(): LiveData<User?>
+
     @Query("SELECT EXISTS (SELECT 1 FROM User WHERE idRoom = 1)")
     abstract suspend fun isLogin(): Boolean
 

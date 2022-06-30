@@ -18,10 +18,22 @@ class DetailFriendActivity : BaseActivity<ActivityDetailFriendBinding, DetailFri
         super.onCreate(savedInstanceState)
         setLayoutRes(R.layout.activity_detail_friend)
 
-        binding.data = intent.getParcelableExtra(Const.BUNDLE.FRIEND)
+        binding.friend = intent.getParcelableExtra(Const.BUNDLE.FRIEND)
+
+        getFriend()
+
+        viewModel.friendAccount.observe(this) { friend ->
+            binding.data = friend
+        }
 
         observe()
     }
+
+    private fun getFriend() {
+        val idFriend = binding.friend?.id
+        viewModel.getFriend(idFriend)
+    }
+
 
     private fun observe() {
         viewModel.apiResponse.observe(this) {

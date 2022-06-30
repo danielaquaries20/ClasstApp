@@ -7,6 +7,11 @@
     <data>
 
         <variable
+            name="friend"
+            type="com.example.classtapp.data.user.User" />
+
+
+        <variable
             name="data"
             type="com.example.classtapp.data.user.User" />
 
