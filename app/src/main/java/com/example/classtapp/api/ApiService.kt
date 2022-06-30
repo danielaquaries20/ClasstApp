@@ -31,6 +31,11 @@ interface ApiService {
     @GET("api/kelasku")
     fun getListUser(): Single<String>
 
+    @GET("api/kelasku/{id}")
+    fun getUserById(
+        @Path("id") idNote: Int?
+    ): Single<String>
+
 
     //Dummy API
     @FormUrlEncoded

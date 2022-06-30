@@ -27,7 +27,22 @@ class DetailProfileActivity : BaseActivity<ActivityDetailProfileBinding, DetailP
             binding.user = user
         }
 
+        getUser()
 
+    }
+
+    override fun onResume() {
+        getUser()
+        super.onResume()
+    }
+
+    override fun onStart() {
+        getUser()
+        super.onStart()
+    }
+
+    private fun getUser() {
+        viewModel.getUser()
     }
 
     private fun logout() {
