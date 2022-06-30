@@ -39,7 +39,7 @@ class ForGlide {
             view.post {
                 val avatar = StringMasker().generateTextDrawable(
                     StringMasker().getInitial(initialProfile?.trim()),
-                    ContextCompat.getColor(view.context, R.color.stated_grey),
+                    ContextCompat.getColor(view.context, R.color.light_blue),
                     view.measuredWidth
                 )
 

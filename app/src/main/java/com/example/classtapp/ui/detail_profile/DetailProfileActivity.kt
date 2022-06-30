@@ -30,25 +30,29 @@ class DetailProfileActivity : BaseActivity<ActivityDetailProfileBinding, DetailP
 
     }
 
+    private fun logout() {
+        viewModel.logoutClasstApp()
+    }
+
     fun onClickDetailProfileActivity(v: View?) {
         when (v) {
             binding.ivProfileBack -> onBackPressed()
 
-//            binding.tvProfileEditProfile -> openActivity<EditProfileActivity> {
-//                putExtra(Const.BUNDLE.SELF, binding.user)
-//            }
-
-            binding.tvProfileEditProfile -> activityLauncher.launch(createIntent<EditProfileActivity> {
+            binding.tvProfileEditProfile -> openActivity<EditProfileActivity> {
                 putExtra(Const.BUNDLE.SELF, binding.user)
-            }) {
-                if (it.resultCode == 7)
-                    viewModel.user.observe(this) { user ->
-                        binding.user = user
-                    }
             }
 
+//            binding.tvProfileEditProfile -> activityLauncher.launch(createIntent<EditProfileActivity> {
+//                putExtra(Const.BUNDLE.SELF, binding.user)
+//            }) {
+//                if (it.resultCode == 7)
+//                    viewModel.user.observe(this) { user ->
+//                        binding.user = user
+//                    }
+//            }
 
             binding.ivProfileLogout -> {
+                logout()
                 authLogoutSuccess()
                 openActivity<MainActivity>()
                 finishAffinity()

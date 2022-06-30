@@ -25,6 +25,9 @@ interface ApiService {
         @Field("bio") bio: String?
     ): Single<String>
 
+    @POST("api/kelasku/logout")
+    fun logoutClasstApp(): Single<String>
+
     @GET("api/kelasku")
     fun getListUser(): Single<String>
 
