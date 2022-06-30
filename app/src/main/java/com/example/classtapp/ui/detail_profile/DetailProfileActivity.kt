@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DetailProfileActivity : BaseActivity<ActivityDetailProfileBinding, DetailProfileViewModel>() {
 
-    private var self = ArrayList<User?>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

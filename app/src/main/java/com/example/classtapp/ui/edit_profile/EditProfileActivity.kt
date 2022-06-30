@@ -48,7 +48,6 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
 
         observe()
 
-
     }
 
     private fun observe() {
@@ -77,30 +76,32 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
 
 
         if (listOf(
-                binding.etEditProfileName, binding.etEditProfileDescription
+                binding.etEditProfileName, binding.etEditProfilePhone, binding.etEditProfileBiodata
             ).isEmptyRequired(R.string.lbl_required_edit_text)
         ) else {
+            val getPassword = session.getString(Const.LOGIN.PASSWORD)
 
             viewModel.user.observe(this) {
                 loadingDialog.show("Updating...")
                 if (filePhoto != null) {
                     filePhoto?.let {
-                        viewModel.
-                        update(
-                            binding.etEditProfileName.textOf(),
-                            "SMK Negeri 11 Semarang",
-                            binding.etEditProfileDescription.textOf(),
-                            it
+                        viewModel.updateUserProfileClasstApp(
+                            binding.etEditProfileName.textOf().trim(),
+                            it,
+                            getPassword,
+                            binding.spinnerEditProfileClass.selectedItem as String,
+                            binding.etEditProfilePhone.textOf().trim(),
+                            binding.etEditProfileBiodata.textOf().trim()
                         )
-//                        setResult(7)
                     }
                 } else {
-                    viewModel.updateNoImage(
-                        binding.etEditProfileName.textOf(),
-                        "SMK Negeri 11 Semarang",
-                        binding.etEditProfileDescription.textOf()
+                    viewModel.updateUserProfileClasstAppWithoutImage(
+                        binding.etEditProfileName.textOf().trim(),
+                        getPassword,
+                        binding.spinnerEditProfileClass.selectedItem as String,
+                        binding.etEditProfilePhone.textOf().trim(),
+                        binding.etEditProfileBiodata.textOf().trim()
                     )
-//                    setResult(7)
                 }
 
             }

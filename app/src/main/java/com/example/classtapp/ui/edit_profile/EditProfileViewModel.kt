@@ -33,6 +33,89 @@ class EditProfileViewModel @Inject constructor(
 
     val user = userDao.getUser()
 
+    fun updateUserProfileClasstApp(
+        name: String?,
+        photo: File,
+        password: String?,
+        kelas: String?,
+        phone: String?,
+        bio: String?
+    ) =
+        viewModelScope.launch {
+            apiResponse.postValue(ApiResponse().responseLoading("Updating..."))
+            val fileBody = photo.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+            val filePart = MultipartBody.Part.createFormData("photo", photo.name, fileBody)
+            apiService.updateUserProfileClasstApp(
+                "put",
+                name,
+                filePart,
+                password,
+                kelas,
+                phone,
+                bio
+            )
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribeWith(object : ApiObserver(true) {
+                    override fun onSuccess(t: String) {
+                        val responseJson = JSONObject(t)
+
+                        val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                        val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+                        if (apiStatus == ApiCode.SUCCESS) {
+                            apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                        } else {
+                            apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                        }
+                    }
+
+                    override fun onError(e: Throwable) {
+                        apiResponse.postValue(ApiResponse().responseError(e))
+                    }
+                })
+        }
+
+    fun updateUserProfileClasstAppWithoutImage(
+        name: String?,
+        password: String?,
+        kelas: String?,
+        phone: String?,
+        bio: String?
+    ) =
+        viewModelScope.launch {
+            apiResponse.postValue(ApiResponse().responseLoading("Updating..."))
+            apiService.updateUserProfileClasstAppWithoutImage(
+                "put",
+                name,
+                password,
+                kelas,
+                phone,
+                bio
+            )
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribeWith(object : ApiObserver(true) {
+                    override fun onSuccess(t: String) {
+                        val responseJson = JSONObject(t)
+
+                        val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                        val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+                        if (apiStatus == ApiCode.SUCCESS) {
+                            apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                        } else {
+                            apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                        }
+                    }
+
+                    override fun onError(e: Throwable) {
+                        apiResponse.postValue(ApiResponse().responseError(e))
+                    }
+                })
+        }
+
+
     fun update(name: String?, school: String?, description: String?, photo: File) =
         viewModelScope.launch {
             apiResponse.postValue(ApiResponse().responseLoading("Updating..."))

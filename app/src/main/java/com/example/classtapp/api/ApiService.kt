@@ -36,6 +36,30 @@ interface ApiService {
         @Path("id") idNote: Int?
     ): Single<String>
 
+    @Multipart
+    @POST("api/kelasku")
+    fun updateUserProfileClasstApp(
+        @Query("_method") method: String?,
+        @Query("name") name: String?,
+        @Part photo: MultipartBody.Part?,
+        @Query("password") password: String?,
+        @Query("class") kelas: String?,
+        @Query("phone") phone: String?,
+        @Query("bio") bio: String?
+    ): Single<String>
+
+    @FormUrlEncoded
+    @POST("api/kelasku")
+    fun updateUserProfileClasstAppWithoutImage(
+        @Field("_method") method: String?,
+        @Field("name") name: String?,
+        @Field("password") password: String?,
+        @Field("class") kelas: String?,
+        @Field("phone") phone: String?,
+        @Field("bio") bio: String?
+    ): Single<String>
+
+
 
     //Dummy API
     @FormUrlEncoded

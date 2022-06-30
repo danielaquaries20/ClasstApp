@@ -40,4 +40,14 @@
     <string name="search">Search</string>
     <string name="lbl_required_edit_text">Form must filled</string>
     <string name="belum_punya_akun_">Belum Punya Akun ?</string>
+    <string name="kelas">Kelas</string>
+
+    <string-array name="class_list">
+        <item>XII MM 1</item>
+        <item>XII MM 2</item>
+        <item>XII MM 3</item>
+        <item>XII MM 4</item>
+    </string-array>
+
+
 </resources>

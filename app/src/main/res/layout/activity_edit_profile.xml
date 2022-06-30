@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -61,8 +61,6 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivEditProfilePhoto"
-                app:imageUrlProfile='@{data.photo}'
-                app:initialProfile='@{data.name}'
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -72,7 +70,9 @@
                 android:contentDescription="@string/photo"
                 android:focusable="true"
                 android:onClick="onClickEditProfileActivity"
-                android:src="@drawable/icon_profile" />
+                android:src="@drawable/icon_profile"
+                app:imageUrlProfile='@{data.photo}'
+                app:initialProfile='@{data.name}' />
 
             <TextView
                 android:id="@+id/tvEditProfileChangePhoto"
@@ -119,7 +119,7 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/etEditProfileDescription"
+                android:id="@+id/etEditProfileBiodata"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/biodata"
@@ -149,9 +149,34 @@
                 android:hint="@string/no_handphone"
                 android:inputType="number"
                 android:minHeight="48dp"
+                android:text='@{data.phone}'
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text='@{"Kelas " + data.kelas}'
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <Spinner
+                android:id="@+id/spinnerEditProfileClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/class_list"
+                android:minHeight="48dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
 
         </LinearLayout>
 
