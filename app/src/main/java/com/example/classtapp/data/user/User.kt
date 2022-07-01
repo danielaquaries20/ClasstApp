@@ -41,7 +41,7 @@ data class User(
     val likes: Int?,
 
     @Expose
-    @SerializedName("like_by_you")
+    @SerializedName("liked_by_you")
     val likeByYou: Boolean?,
 
     @Expose

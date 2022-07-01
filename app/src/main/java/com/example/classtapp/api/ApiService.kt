@@ -59,6 +59,10 @@ interface ApiService {
         @Field("bio") bio: String?
     ): Single<String>
 
+    @POST("api/kelasku/like/{id}")
+    fun likeFriendClasstApp(
+        @Path("id") idNote: Int?
+    ): Single<String>
 
 
     //Dummy API

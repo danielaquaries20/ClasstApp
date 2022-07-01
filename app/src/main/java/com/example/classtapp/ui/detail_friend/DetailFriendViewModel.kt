@@ -63,6 +63,34 @@ class DetailFriendViewModel @Inject constructor(
                 })
         }
 
+    fun likeFriend(id: Int?) =
+        viewModelScope.launch {
+            apiResponse.postValue(ApiResponse().responseLoading("Process..."))
+            apiService.likeFriendClasstApp(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribeWith(object : ApiObserver(true) {
+                    override fun onSuccess(t: String) {
+                        val responseJson = JSONObject(t)
+
+                        val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                        val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+//                        val apiInfo = responseJson.getString("info")
+
+                        if (apiStatus == 201||apiStatus == ApiCode.SUCCESS) {
+                            apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                        } else {
+                            apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                        }
+                    }
+
+                    override fun onError(e: Throwable) {
+                        apiResponse.postValue(ApiResponse().responseError(e))
+                    }
+                })
+        }
+
+
 
     private fun saveFriend(user: User) = viewModelScope.launch {
         userDao.insert(user.copy(idRoom = 2))

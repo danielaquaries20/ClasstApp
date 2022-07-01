@@ -34,6 +34,12 @@ class DetailFriendActivity : BaseActivity<ActivityDetailFriendBinding, DetailFri
         viewModel.getFriend(idFriend)
     }
 
+    private fun likeFriend() {
+        val idFriend = binding.friend?.id
+        viewModel.likeFriend(idFriend)
+    }
+
+
 
     private fun observe() {
         viewModel.apiResponse.observe(this) {
@@ -47,18 +53,18 @@ class DetailFriendActivity : BaseActivity<ActivityDetailFriendBinding, DetailFri
 
                     viewModel.likeData.observe(this) {
                         Log.d("checkResponse", "LikedResponse : $it")
-                        when (it.liked) {
-                            true -> {
-                                binding.ivDetailFriendLike.setImageResource(R.drawable.ic_baseline_favorite)
-                                tos("Liked")
-                                setResult(7)
-                            }
-                            false -> {
-                                binding.ivDetailFriendLike.setImageResource(R.drawable.ic_baseline_favorite_border)
-                                tos("Unliked")
-                                setResult(7)
-                            }
-                        }
+//                        when (it.liked) {
+//                            true -> {
+//                                binding.ivDetailFriendLike.setImageResource(R.drawable.ic_baseline_favorite)
+//                                tos("Liked")
+//                                setResult(7)
+//                            }
+//                            false -> {
+//                                binding.ivDetailFriendLike.setImageResource(R.drawable.ic_baseline_favorite_border)
+//                                tos("Unliked")
+//                                setResult(7)
+//                            }
+//                        }
                     }
                 }
                 ApiStatus.WRONG, ApiStatus.ERROR -> {
@@ -74,13 +80,25 @@ class DetailFriendActivity : BaseActivity<ActivityDetailFriendBinding, DetailFri
     fun onClickDetailFriendActivity(v: View?) {
         when (v) {
             binding.ivDetailFriendBack -> onBackPressed()
-
             binding.ivDetailFriendLike -> {
-                viewModel.userAccount.observe(this) {
-                    val getFriend: User? = intent.getParcelableExtra(Const.BUNDLE.FRIEND)
-                    viewModel.like(it?.id, getFriend?.id)
-                }
+                likeFriend()
+                tos("Unliked", true)
+                binding.ivDetailFriendLike.visibility = View.GONE
+                binding.ivDetailFriendUnlike.visibility = View.VISIBLE
             }
+            binding.ivDetailFriendUnlike -> {
+                likeFriend()
+                tos("Liked", true)
+                binding.ivDetailFriendUnlike.visibility = View.GONE
+                binding.ivDetailFriendLike.visibility = View.VISIBLE
+            }
+
+//            binding.ivDetailFriendLike -> {
+//                viewModel.userAccount.observe(this) {
+//                    val getFriend: User? = intent.getParcelableExtra(Const.BUNDLE.FRIEND)
+//                    viewModel.like(it?.id, getFriend?.id)
+//                }
+//            }
 
         }
         super.onClick(v)
