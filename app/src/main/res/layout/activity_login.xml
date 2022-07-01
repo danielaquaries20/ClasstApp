@@ -3,7 +3,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data />
+    <data>
+
+        <variable
+            name="phone"
+            type="String" />
+
+        <variable
+            name="password"
+            type="String" />
+
+    </data>
 
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -51,7 +61,8 @@
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp" />
+                android:paddingBottom="5dp"
+                android:text='@{phone}' />
 
             <EditText
                 android:id="@+id/etLoginPassword"
@@ -65,7 +76,8 @@
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="15dp"
-                android:paddingBottom="5dp" />
+                android:paddingBottom="5dp"
+                android:text='@{password}' />
 
 
             <Button

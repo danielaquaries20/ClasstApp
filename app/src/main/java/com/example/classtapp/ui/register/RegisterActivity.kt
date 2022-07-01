@@ -16,6 +16,7 @@ import com.crocodic.core.extension.openActivity
 import com.crocodic.core.extension.textOf
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
+import com.example.classtapp.data.constant.Const
 import com.example.classtapp.databinding.ActivityMainBinding
 import com.example.classtapp.databinding.ActivityRegisterBinding
 import com.example.classtapp.ui.home.HomeActivity
@@ -81,6 +82,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
             binding.etRegisterPhone.textOf(),
             binding.etRegisterPassword.textOf()
         )
+        binding.etRegisterPhone.textOf().trim().let { session.setValue(Const.LOGIN.PHONE, it) }
+        binding.etRegisterPassword.textOf().trim()
+            .let { session.setValue(Const.LOGIN.PASSWORD, it) }
     }
 
 

@@ -7,6 +7,7 @@ import com.crocodic.core.extension.openActivity
 import com.crocodic.core.extension.textOf
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
+import com.example.classtapp.data.constant.Const
 import com.example.classtapp.databinding.ActivityLoginBinding
 import com.example.classtapp.ui.home.HomeActivity
 import com.example.classtapp.ui.register.RegisterActivity
@@ -19,8 +20,23 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         super.onCreate(savedInstanceState)
         setLayoutRes(R.layout.activity_login)
 
+        //Set Phone & Password
+        val getPhone = session.getString(Const.LOGIN.PHONE)
+        val getPassword = session.getString(Const.LOGIN.PASSWORD)
+        binding.phone = getPhone
+        binding.password = getPassword
+
         observe()
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //Set Phone & Password
+        val getPhone = session.getString(Const.LOGIN.PHONE)
+        val getPassword = session.getString(Const.LOGIN.PASSWORD)
+        binding.phone = getPhone
+        binding.password = getPassword
     }
 
     private fun observe() {

@@ -32,11 +32,25 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
         viewModel.user.observe(this) { user ->
             binding.user = user
         }
+        binding.svHomeSearch.setOnQueryTextListener(this)
 
         observe()
         initView()
+        getData()
+    }
 
-        binding.svHomeSearch.setOnQueryTextListener(this)
+    override fun onResume() {
+        super.onResume()
+        getData()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        getData()
+    }
+
+    override fun onStart() {
+        super.onStart()
         getData()
     }
 
