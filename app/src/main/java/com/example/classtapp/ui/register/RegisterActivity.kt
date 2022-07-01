@@ -1,6 +1,5 @@
 package com.example.classtapp.ui.register
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -17,9 +16,7 @@ import com.crocodic.core.extension.textOf
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.data.constant.Const
-import com.example.classtapp.databinding.ActivityMainBinding
 import com.example.classtapp.databinding.ActivityRegisterBinding
-import com.example.classtapp.ui.home.HomeActivity
 import com.example.classtapp.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,14 +56,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
     }
 
     private fun validateForm() {
-//        if (binding.etUsername.text?.isEmpty() == true) {
-//            binding.etUsername.error = "Form must filled"
-//        } else if (binding.etPhone.text?.isEmpty() == true) {
-//            binding.etPhone.error = "Form must filled"
-//        } else if (binding.etPassword.text?.isEmpty() == true) {
-//            binding.etPassword.error = "Form must filled"
-//        }
-
         if (listOf(
                 binding.etRegisterName,
                 binding.etRegisterPhone,

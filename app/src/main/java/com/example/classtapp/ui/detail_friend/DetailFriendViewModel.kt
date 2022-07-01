@@ -34,6 +34,7 @@ class DetailFriendViewModel @Inject constructor(
     val friendAccount = userDao.getFirend()
     val likeData = MutableLiveData<LikeResponse>()
 
+    //Real API
     fun getFriend(id: Int?) =
         viewModelScope.launch {
             apiResponse.postValue(ApiResponse().responseLoading())
@@ -75,7 +76,6 @@ class DetailFriendViewModel @Inject constructor(
 
                         val apiStatus = responseJson.getInt(ApiCode.STATUS)
                         val apiMessage = responseJson.getString(ApiCode.MESSAGE)
-//                        val apiInfo = responseJson.getString("info")
 
                         if (apiStatus == 201||apiStatus == ApiCode.SUCCESS) {
                             apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
@@ -83,7 +83,6 @@ class DetailFriendViewModel @Inject constructor(
                             apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
                         }
                     }
-
                     override fun onError(e: Throwable) {
                         apiResponse.postValue(ApiResponse().responseError(e))
                     }
@@ -96,6 +95,8 @@ class DetailFriendViewModel @Inject constructor(
         userDao.insert(user.copy(idRoom = 2))
     }
 
+
+    //Dummy API
     fun like(id: Int?, id_i_like: Int?) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("like..."))
         apiService.like(id, id_i_like)
@@ -112,10 +113,6 @@ class DetailFriendViewModel @Inject constructor(
                         val like = responseJson.toObject<LikeResponse>(gson)
                         likeData.postValue(like)
                         Log.d("CekLike", "$like")
-                        // TODO: 2/19/2022 Log untuk mengecek response likeByYou
-
-//                        val user = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
-//                        saveUser(user)
 
                         apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
                     } else {

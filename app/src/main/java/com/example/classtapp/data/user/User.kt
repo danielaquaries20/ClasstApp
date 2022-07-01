@@ -29,18 +29,6 @@ data class User(
     val photo: String?,
 
     @Expose
-    @SerializedName("school")
-    val school: String?,
-
-    @Expose
-    @SerializedName("description")
-    val description: String?,
-
-    @Expose
-    @SerializedName("likes")
-    val likes: Int?,
-
-    @Expose
     @SerializedName("liked_by_you")
     val likeByYou: Boolean?,
 

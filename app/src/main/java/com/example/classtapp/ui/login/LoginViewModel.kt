@@ -27,6 +27,7 @@ class LoginViewModel @Inject constructor(
     private val session: CoreSession
 ) : BaseViewModel(apiService) {
 
+    //Real API
     fun loginClasstApp(phone: String?, password: String?) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("Logging in..."))
         apiService.loginClasstApp(phone, password, "device token success")
@@ -57,7 +58,12 @@ class LoginViewModel @Inject constructor(
             })
     }
 
+    private fun saveUser(user: User) = viewModelScope.launch {
+        userDao.insert(user.copy(idRoom = 1))
+    }
 
+
+    //Dummy API
     fun login(phone: String?, password: String?) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("Logging in..."))
         apiService.login(phone, password)
@@ -85,10 +91,5 @@ class LoginViewModel @Inject constructor(
                 }
             })
     }
-
-    private fun saveUser(user: User) = viewModelScope.launch {
-        userDao.insert(user.copy(idRoom = 1))
-    }
-
 
 }

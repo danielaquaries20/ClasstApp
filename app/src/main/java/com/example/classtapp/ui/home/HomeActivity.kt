@@ -55,7 +55,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
     }
 
     private fun getData() {
-//        binding.isLoading = true
         viewModel.listFriend()
     }
 
@@ -68,9 +67,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
                     if (it.resultCode == 7)
                         getData()
                 }
-//                openActivity<DetailFriendActivity> {
-//                    putExtra(Const.BUNDLE.FRIEND, data)
-//                }
             }
 
         binding.srHomeRefreshData.setOnRefreshListener {
@@ -105,18 +101,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
         }
     }
 
-
-//    override fun onCreateOptionsMenu(setMenu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu_home, setMenu)
-//
-//        val search = setMenu?.findItem(R.id.iconMenuSearch)
-//        val searchView = search?.actionView as? SearchView
-//        searchView?.isSubmitButtonEnabled = true
-//        searchView?.setOnQueryTextListener(this)
-//
-//        return true
-//    }
-
     override fun onQueryTextSubmit(query: String?): Boolean {
         return true
     }
@@ -139,8 +123,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
             binding.rvHomeListFriend.adapter?.notifyItemInserted(0)
         }
         return false
-
-
     }
 
 
@@ -166,9 +148,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
                 binding.layoutHomeSearch.visibility = View.GONE
                 binding.ivHomeSearch.visibility = View.VISIBLE
             }
-
         }
-
         super.onClick(v)
     }
 

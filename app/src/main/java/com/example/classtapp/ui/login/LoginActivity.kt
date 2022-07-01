@@ -64,10 +64,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             binding.etLoginPassword.error = "Form must filled"
         }
 
-//        if (listOf(binding.etPhone, binding.etPassword).isEmptyRequired()) {
-//            return
-//        }
-
         loadingDialog.show("Logging in...")
         viewModel.loginClasstApp(binding.etLoginNoHp.textOf(), binding.etLoginPassword.textOf())
     }

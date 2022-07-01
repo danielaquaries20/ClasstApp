@@ -12,7 +12,7 @@ import com.example.classtapp.data.user.UserDao
     entities = [
         User::class
     ],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 

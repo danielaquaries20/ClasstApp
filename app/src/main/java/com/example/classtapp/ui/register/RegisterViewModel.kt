@@ -28,39 +28,10 @@ class RegisterViewModel @Inject constructor(
     private val session: CoreSession
 ) : BaseViewModel(apiService) {
 
+    //Real API
     fun registerClasstApp(name: String?, phone: String?, password: String?) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("Registering..."))
         apiService.registerClasstApp(name, phone, password, "User does not fill", "Hello there my name is $name")
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribeWith(object : ApiObserver(true) {
-                override fun onSuccess(t: String) {
-                    val responseJson = JSONObject(t)
-
-                    val apiStatus = responseJson.getInt(ApiCode.STATUS)
-                    val apiMessage = responseJson.getString(ApiCode.MESSAGE)
-
-                    if (apiStatus == ApiCode.SUCCESS) {
-                        val user = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
-                        phone?.let { session.setValue(Const.LOGIN.PHONE, it) }
-                        password?.let { session.setValue(Const.LOGIN.PASSWORD, it) }
-                        saveUser(user)
-                        apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
-                    } else {
-                        apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
-                    }
-                }
-
-                override fun onError(e: Throwable) {
-                    apiResponse.postValue(ApiResponse().responseError(e))
-                }
-            })
-    }
-
-
-    fun register(name: String?, phone: String?, password: String?) = viewModelScope.launch {
-        apiResponse.postValue(ApiResponse().responseLoading("Registering..."))
-        apiService.register(name, phone, password)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribeWith(object : ApiObserver(true) {
@@ -91,5 +62,35 @@ class RegisterViewModel @Inject constructor(
         userDao.insert(user.copy(idRoom = 1))
     }
 
+
+    //Dummy API
+    fun register(name: String?, phone: String?, password: String?) = viewModelScope.launch {
+        apiResponse.postValue(ApiResponse().responseLoading("Registering..."))
+        apiService.register(name, phone, password)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribeWith(object : ApiObserver(true) {
+                override fun onSuccess(t: String) {
+                    val responseJson = JSONObject(t)
+
+                    val apiStatus = responseJson.getInt(ApiCode.STATUS)
+                    val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+                    if (apiStatus == ApiCode.SUCCESS) {
+                        val user = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                        phone?.let { session.setValue(Const.LOGIN.PHONE, it) }
+                        password?.let { session.setValue(Const.LOGIN.PASSWORD, it) }
+                        saveUser(user)
+                        apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
+                    } else {
+                        apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
+                    }
+                }
+
+                override fun onError(e: Throwable) {
+                    apiResponse.postValue(ApiResponse().responseError(e))
+                }
+            })
+    }
 
 }

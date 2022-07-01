@@ -1,14 +1,12 @@
 package com.example.classtapp.ui.detail_friend
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.extension.tos
 import com.example.classtapp.R
 import com.example.classtapp.base.activity.BaseActivity
 import com.example.classtapp.data.constant.Const
-import com.example.classtapp.data.user.User
 import com.example.classtapp.databinding.ActivityDetailFriendBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,30 +43,13 @@ class DetailFriendActivity : BaseActivity<ActivityDetailFriendBinding, DetailFri
         viewModel.apiResponse.observe(this) {
             when (it.status) {
                 ApiStatus.LOADING -> {
-//                    it.message?.let { msg -> loadingDialog.show(msg) }
+//                    tos("Loading...")
                 }
                 ApiStatus.SUCCESS -> {
-//                    loadingDialog.dismiss()
-//                    finish()
-
-                    viewModel.likeData.observe(this) {
-                        Log.d("checkResponse", "LikedResponse : $it")
-//                        when (it.liked) {
-//                            true -> {
-//                                binding.ivDetailFriendLike.setImageResource(R.drawable.ic_baseline_favorite)
-//                                tos("Liked")
-//                                setResult(7)
-//                            }
-//                            false -> {
-//                                binding.ivDetailFriendLike.setImageResource(R.drawable.ic_baseline_favorite_border)
-//                                tos("Unliked")
-//                                setResult(7)
-//                            }
-//                        }
-                    }
+//                    tos("Success")
                 }
                 ApiStatus.WRONG, ApiStatus.ERROR -> {
-//                    it.message?.let { msg -> loadingDialog.setResponse(msg) }
+//                    tos("API Error")
                 }
                 else -> {
                     tos("Error")
@@ -92,16 +73,7 @@ class DetailFriendActivity : BaseActivity<ActivityDetailFriendBinding, DetailFri
                 binding.ivDetailFriendUnlike.visibility = View.GONE
                 binding.ivDetailFriendLike.visibility = View.VISIBLE
             }
-
-//            binding.ivDetailFriendLike -> {
-//                viewModel.userAccount.observe(this) {
-//                    val getFriend: User? = intent.getParcelableExtra(Const.BUNDLE.FRIEND)
-//                    viewModel.like(it?.id, getFriend?.id)
-//                }
-//            }
-
         }
         super.onClick(v)
     }
-
 }

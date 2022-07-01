@@ -33,6 +33,7 @@ class EditProfileViewModel @Inject constructor(
 
     val user = userDao.getUser()
 
+    //Real API
     fun updateUserProfileClasstApp(
         name: String?,
         photo: File,
@@ -116,6 +117,7 @@ class EditProfileViewModel @Inject constructor(
         }
 
 
+    //Dummy API
     fun update(name: String?, school: String?, description: String?, photo: File) =
         viewModelScope.launch {
             apiResponse.postValue(ApiResponse().responseLoading("Updating..."))

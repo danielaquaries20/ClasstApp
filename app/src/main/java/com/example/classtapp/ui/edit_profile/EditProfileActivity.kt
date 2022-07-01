@@ -68,13 +68,6 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
     }
 
     private fun validateForm() {
-//        if (binding.etUsername.text?.isEmpty() == true) {
-//            binding.etUsername.error = "Form must filled"
-//        } else if (binding.etDescription.text?.isEmpty() == true) {
-//            binding.etDescription.error = "Form must filled"
-//        }
-
-
         if (listOf(
                 binding.etEditProfileName, binding.etEditProfilePhone, binding.etEditProfileBiodata
             ).isEmptyRequired(R.string.lbl_required_edit_text)
@@ -103,29 +96,8 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
                         binding.etEditProfileBiodata.textOf().trim()
                     )
                 }
-
             }
-
-//            viewModel.user.observe(this) {
-//                loadingDialog.show("Updating...")
-//                filePhoto?.let {
-//                    viewModel.update(
-//                        binding.etUsername.textOf(),
-//                        binding.spinnerSchool.selectedItem as String,
-//                        binding.etDescription.textOf(),
-//                        it
-//                    )
-//                }
-//            }
         }
-
-//        loadingDialog.show("Updating...")
-//        viewModel.update(
-//            binding.etUsername.textOf(),
-//            binding.spinnerSchool.selectedItem as String,
-//            binding.etDescription.textOf(),
-//            null
-//        )
     }
 
 
@@ -289,11 +261,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
                     requestPermissionGallery()
                 }
             }
-
-
         }
-
         super.onClick(v)
     }
-
 }

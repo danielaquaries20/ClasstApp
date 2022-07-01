@@ -1,9 +1,7 @@
 package com.example.classtapp.ui.mainscreen
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
 import com.crocodic.core.extension.openActivity
 import com.example.classtapp.R
@@ -20,41 +18,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         super.onCreate(savedInstanceState)
         setLayoutRes(R.layout.activity_main)
 
-//        //fullscreen
-//        window.setFlags(
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN
-//        )
-//
-//        //transparant status bar
-//        window.setFlags(
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-//        )
-
-//        Handler(mainLooper).postDelayed({
-//            openActivity<LoginActivity>{}
-//        }, 3000)
-
     }
 
     fun onClickMainActivity(v: View?) {
         when (v) {
-//            binding.btnMasukApp -> {
-//                binding.linearMainTwo.visibility = View.VISIBLE
-//
-//                Handler(mainLooper).postDelayed({
-//                    binding.linearMainTwo.visibility = View.GONE
-//                    viewModel.checkLogin { isLogin ->
-//                        if (isLogin) {
-//                            openActivity<HomeActivity>()
-//                        } else {
-//                            openActivity<LoginActivity>()
-//                        }
-//                    }
-//                }, 1000)
-//            }
-
             binding.btnMasukApp -> {
                 viewModel.checkLogin { isLogin ->
                     if (isLogin) {
@@ -63,11 +30,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                         openActivity<LoginActivity>()
                     }
                 }
-
             }
-
         }
-
         super.onClick(v)
     }
 

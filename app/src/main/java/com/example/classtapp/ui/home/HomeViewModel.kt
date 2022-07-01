@@ -32,6 +32,7 @@ class HomeViewModel @Inject constructor(
     val friends = MutableLiveData<List<User>>()
     val user = userDao.getUser()
 
+    //Real API
     fun listFriend() = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading())
         apiService.getListUser()
@@ -62,6 +63,7 @@ class HomeViewModel @Inject constructor(
     }
 
 
+    //Dummy API
     fun list() = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading())
         val userId = userDao.getUserId()
@@ -91,6 +93,5 @@ class HomeViewModel @Inject constructor(
                 }
             })
     }
-
 
 }

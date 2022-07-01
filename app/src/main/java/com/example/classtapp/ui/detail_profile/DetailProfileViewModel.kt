@@ -29,6 +29,7 @@ class DetailProfileViewModel @Inject constructor(
 
     val user = userDao.getUser()
 
+    //Real API
     fun getUser() =
         viewModelScope.launch {
             apiResponse.postValue(ApiResponse().responseLoading())
