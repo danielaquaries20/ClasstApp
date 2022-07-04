@@ -27,12 +27,12 @@ class DetailProfileActivity : BaseActivity<ActivityDetailProfileBinding, DetailP
         getUser()
 
     }
-
-    override fun onResume() {
-        getUser()
-        super.onResume()
-    }
-
+//
+//    override fun onResume() {
+//        getUser()
+//        super.onResume()
+//    }
+//
     override fun onStart() {
         getUser()
         super.onStart()

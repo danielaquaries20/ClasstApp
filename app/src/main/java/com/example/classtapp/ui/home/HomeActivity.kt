@@ -39,10 +39,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(),
         getData()
     }
 
-    override fun onResume() {
-        super.onResume()
-        getData()
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        getData()
+//    }
 
     override fun onPause() {
         super.onPause()

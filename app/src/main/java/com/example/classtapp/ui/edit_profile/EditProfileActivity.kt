@@ -75,7 +75,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfile
             val getPassword = session.getString(Const.LOGIN.PASSWORD)
 
             viewModel.user.observe(this) {
-                loadingDialog.show("Updating...")
+//                loadingDialog.show("Updating...")
                 if (filePhoto != null) {
                     filePhoto?.let {
                         viewModel.updateUserProfileClasstApp(
