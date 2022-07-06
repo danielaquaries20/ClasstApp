@@ -28,9 +28,9 @@ class LoginViewModel @Inject constructor(
 ) : BaseViewModel(apiService) {
 
     //Real API
-    fun loginClasstApp(phone: String?, password: String?) = viewModelScope.launch {
+    fun loginClasstApp(phone: String?, password: String?, deviceToken: String) = viewModelScope.launch {
         apiResponse.postValue(ApiResponse().responseLoading("Logging in..."))
-        apiService.loginClasstApp(phone, password, "device token success")
+        apiService.loginClasstApp(phone, password, deviceToken)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribeWith(object : ApiObserver(true) {

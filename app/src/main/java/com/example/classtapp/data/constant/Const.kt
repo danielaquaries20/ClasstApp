@@ -24,4 +24,8 @@ class Const {
         const val SELF = "self"
     }
 
+    object DEVICETOKEN {
+        val FCMTOKEN = "fcm_token"
+    }
+
 }

@@ -41,6 +41,7 @@
     <string name="lbl_required_edit_text">Form must filled</string>
     <string name="belum_punya_akun_">Belum Punya Akun ?</string>
     <string name="kelas">Kelas</string>
+    <string name="msg_token_fmt">Token</string>
 
     <string-array name="class_list">
         <item>XII MM 1</item>
