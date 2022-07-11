@@ -48,7 +48,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             // Log and toast
 //            val msg = getString(R.string.msg_token_fmt, token)
             Log.d(ContentValues.TAG, "Token: $token")
-            tos("Token: $token")
+//            tos("Token: $token")
         })
     }
 
