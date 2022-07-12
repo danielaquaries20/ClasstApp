@@ -3,6 +3,7 @@ package com.example.classtapp.fcm
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -40,7 +41,7 @@ class FCMService : FirebaseMessagingService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Notification Title"
             val descriptionText = "Notification Description"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(channelId, name, importance).apply {
                 description = descriptionText
             }
@@ -56,16 +57,19 @@ class FCMService : FirebaseMessagingService() {
 
 //        val photoProfile =
 //            BitmapFactory.decodeResource(applicationContext.resources, R.drawable.photo_friend)
+        val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         val buildNotification = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.ic_baseline_person)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setVibrate(longArrayOf(1000 , 1000 , 1000 , 1000 , 1000))
+            .setSound(alarmSound)
             .setContentTitle(title)
             .setContentText(body)
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    .bigText("$body Coba Coba Coba Hayo hayo hayo")
+                    .bigText("$body")
             )
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(this)) {
             notify(notificationId, buildNotification.build())
