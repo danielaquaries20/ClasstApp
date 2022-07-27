@@ -4,9 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
 import com.crocodic.core.api.ApiResponse
-import com.crocodic.core.extension.toList
 import com.crocodic.core.extension.toObject
-import com.crocodic.core.helper.log.Log
 import com.example.classtapp.api.ApiService
 import com.example.classtapp.base.activity.BaseViewModel
 import com.example.classtapp.data.user.User
@@ -45,8 +43,13 @@ class DetailProfileViewModel @Inject constructor(
                         val apiMessage = responseJson.getString(ApiCode.MESSAGE)
 //                        val apiInfo = responseJson.getString("info")
 
+                        android.util.Log.d("ApiResponse", "ResponseJson : $responseJson")
+                        android.util.Log.d("ApiResponse", "ApiStatus : $apiStatus")
+                        android.util.Log.d("ApiResponse", "ApiMessage : $apiMessage")
+
                         if (apiStatus == ApiCode.SUCCESS || apiStatus == 201) {
-                            val getUser = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                            val getUser =
+                                responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
                             saveUser(getUser)
                             apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
                         } else {
@@ -72,6 +75,14 @@ class DetailProfileViewModel @Inject constructor(
 
                     val apiStatus = responseJson.getInt(ApiCode.STATUS)
                     val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+//                    Log.d("ApiResponse", "ResponseJson : $responseJson")
+//                    Log.d("ApiResponse", "ApiStatus : $apiStatus")
+//                    Log.d("ApiResponse", "ApiMessage : $apiMessage")
+
+                    android.util.Log.d("ApiResponse", "ResponseJson : $responseJson")
+                    android.util.Log.d("ApiResponse", "ApiStatus : $apiStatus")
+                    android.util.Log.d("ApiResponse", "ApiMessage : $apiMessage")
 
                     if (apiStatus == ApiCode.SUCCESS) {
                         apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))

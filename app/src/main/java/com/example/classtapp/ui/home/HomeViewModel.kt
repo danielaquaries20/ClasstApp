@@ -45,10 +45,14 @@ class HomeViewModel @Inject constructor(
                     val apiStatus = responseJson.getInt(ApiCode.STATUS)
                     val apiMessage = responseJson.getString(ApiCode.MESSAGE)
 
+                    android.util.Log.d("ApiResponse", "ResponseJson : $responseJson")
+                    android.util.Log.d("ApiResponse", "ApiStatus : $apiStatus")
+                    android.util.Log.d("ApiResponse", "ApiMessage : $apiMessage")
+
                     if (apiStatus == ApiCode.SUCCESS) {
                         val user = responseJson.getJSONArray(ApiCode.DATA).toList<User>(gson)
                         friends.postValue(user)
-                        Log.d("CekDataUser", "$user")
+                        Log.d("ApiResponse", "Friend : $user")
 
                         apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
                     } else {

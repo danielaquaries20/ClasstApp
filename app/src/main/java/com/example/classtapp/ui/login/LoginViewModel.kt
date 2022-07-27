@@ -1,5 +1,6 @@
 package com.example.classtapp.ui.login
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
@@ -39,6 +40,10 @@ class LoginViewModel @Inject constructor(
 
                     val apiStatus = responseJson.getInt(ApiCode.STATUS)
                     val apiMessage = responseJson.getString(ApiCode.MESSAGE)
+
+                    Log.d("ApiResponse", "ResponseJson : $responseJson")
+                    Log.d("ApiResponse", "ApiStatus : $apiStatus")
+                    Log.d("ApiResponse", "ApiMessage : $apiMessage")
 
                     if (apiStatus == ApiCode.SUCCESS) {
                         val user = responseJson.getJSONObject(ApiCode.DATA).toObject<User>(gson)
@@ -81,6 +86,7 @@ class LoginViewModel @Inject constructor(
                         phone?.let { session.setValue(Const.LOGIN.PHONE, it) }
                         password?.let { session.setValue(Const.LOGIN.PASSWORD, it) }
                         saveUser(user)
+                        Log.d("ApiResponse", "Data : $user")
                         apiResponse.postValue(ApiResponse().responseSuccess(apiMessage))
                     } else {
                         apiResponse.postValue(ApiResponse().responseWrong(apiMessage))
